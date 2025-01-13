@@ -1,0 +1,74 @@
+<div class="login my-5 m-auto shadow bg-white">
+  <h5 class="title mb-3">Login</h5>
+  <div class="container">
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="form-field">
+        <mat-form-field appearance="outline">
+          <mat-label>Enter your email</mat-label>
+          <input
+            matInput
+            placeholder="pat@example.com"
+            formControlName="email"
+            name="email"
+            id="email"
+            (blur)="updateErrorMessage()"
+            required
+          />
+          <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
+            Please enter a valid email
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-field">
+        <mat-form-field appearance="outline">
+          <mat-label>Enter your password</mat-label>
+          <input
+            matInput
+            [type]="hide() ? 'password' : 'text'"
+            placeholder="password"
+            formControlName="password"
+            name="password"
+            id="password"
+            required
+          />
+          <button
+            mat-icon-button
+            matSuffix
+            type="button"
+            (click)="clickEvent($event)"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide()"
+          >
+            <mat-icon>{{ hide() ? "visibility_off" : "visibility" }}</mat-icon>
+          </button>
+          <mat-error
+            *ngIf="loginForm.get('password')?.hasError('required')"
+            class="pb-1"
+          >
+            Password is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="ps-3">
+        <a routerLink="/auth/forget-password"> Forgot password ? </a>
+      </div>
+      <div class="error my-3 py-3" *ngIf="errorMessage()">
+        <mat-error>{{ errorMessage() }}</mat-error>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn">Login</button>
+      </div>
+      <div class="text-center">
+        <p class="action-btn-link">
+          Don't have an account?
+          <b>
+            <u class="action-btn" routerLink="/auth/register">Register</u>
+          </b>
+        </p>
+      </div>
+    </form>
+  </div>
+</div>

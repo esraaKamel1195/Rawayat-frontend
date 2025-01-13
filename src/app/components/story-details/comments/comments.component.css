@@ -1,0 +1,26 @@
+img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+textarea::placeholder {
+  font-style: italic;
+}
+
+textarea {
+  font-style: normal;
+}
+
+.btn {
+  background-color: #f87f27;
+}
+
+.btn:hover {
+  background-color: #262628;
+  color: #f9f7f3;
+}
+
+.container {
+  background-color: #f9f7f3;
+}

@@ -1,0 +1,34 @@
+<div class="container-fluid footer text-center">
+  <div class="container-fluid row mt-3">
+    <div class="col-md-3 align-content-center">
+      <img src="images/book-logo1.png" class="img-fluid" alt="" />
+      <p class="logo-text">Rewayati</p>
+    </div>
+    <div class="col-md-3">
+      <h6>Quick Link</h6>
+      <ul>
+        <li [routerLink]="'/routePath'" routerLinkActive="router-link-active">
+          link1
+        </li>
+        <li [routerLink]="'/routePath'" routerLinkActive="router-link-active">
+          link2
+        </li>
+        <li [routerLink]="'/routePath'" routerLinkActive="router-link-active">
+          link3
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-3 contact">
+      <h6>Contact Us</h6>
+      <p>Email: <a href="mailto:email@example.com">example&gmail.com</a></p>
+      <p>Phone: +1 123 456 7890</p>
+    </div>
+    <div class="col-md-3 social text-center">
+      <h6 class="text-center">Social Media</h6>
+      <a href="#"><i class="fab fa-facebook-square ps-5"></i></a>
+      <a href="#"><i class="fab fa-twitter-square ps-5"></i></a>
+      <a href="#"><i class="fab fa-instagram-square ps-5"></i></a>
+      <a href="#"><i class="fab fa-linkedin ps-5"></i></a>
+    </div>
+  </div>
+</div>

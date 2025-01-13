@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{g as a}from"./chunk-APY6NCEA.mjs";import"./chunk-NP6UCXIG.mjs";import{ga as n,gc as o}from"./chunk-JFMF6S6U.mjs";import"./chunk-5XUXGTUW.mjs";var i=class e{static \u0275fac=function(t){return new(t||e)};static \u0275cmp=n({type:e,selectors:[["app-verify-email"]],standalone:!0,features:[o],decls:0,vars:0,template:function(t,m){},dependencies:[a]})};export{i as VerifyEmailComponent};

@@ -1,0 +1,31 @@
+{
+  "routes": [
+    "/",
+    "/about",
+    "/admin",
+    "/admin/categories",
+    "/admin/category/create",
+    "/admin/chapter/create",
+    "/admin/chapter/edit",
+    "/admin/contacts",
+    "/admin/deleted-stories",
+    "/admin/reading-later",
+    "/admin/reviews",
+    "/admin/start-reading",
+    "/admin/stories",
+    "/admin/story/create",
+    "/admin/story/edit",
+    "/admin/users",
+    "/auth",
+    "/auth/forget-password",
+    "/auth/login",
+    "/auth/register",
+    "/auth/reset-password",
+    "/auth/verify",
+    "/contact",
+    "/home",
+    "/profile",
+    "/stories/latest-stories",
+    "/stories/popular-stories"
+  ]
+}

@@ -1,0 +1,5 @@
+.error {
+  height: 98vh;
+  position: relative;
+  transform: translate(-50, -50);
+}

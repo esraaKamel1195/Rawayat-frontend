@@ -1,0 +1,247 @@
+<section>
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-3">
+        <img
+          *ngIf="storyDetails?.cover_image"
+          [src]="storyDetails.cover_image"
+          class="img-fluid story-img"
+          alt="cover book"
+        />
+        <div>
+          <button
+            class="btn now"
+            (click)="readStory(storyDetails.id)"
+          >
+            Read now
+          </button>
+        </div>
+        <div>
+          <button class="btn later" (click)="onReadLater()">
+            Save to read Later
+          </button>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <!--title-->
+        <div class="title mb-3 mt-sm-4 mt-md-0">
+          <h3>{{ storyDetails.title }}</h3>
+        </div>
+        <!--icons-->
+        <div class="d-flex justify-content-start mb-5">
+          <div>
+            <span>
+              <img
+                src="images/reading-book.png"
+                class="icon-img"
+                alt="reading-book"
+              />
+              <span class="icon-text">{{
+                storyDetails.readers_count
+              }}</span>
+            </span>
+          </div>
+          <div class="ps-3">
+            <span>
+              <img
+                src="images/feedback.png"
+                class="icon-img"
+                alt="feedback"
+              />
+              <span class="icon-text">{{
+                storyDetails.votes_count
+              }}</span></span
+            >
+          </div>
+          <div class="ps-3">
+            <span>
+              <img
+                src="images/feedback-2.png"
+                class="icon-img"
+                alt="feedback-2"
+              />
+              <span class="icon-text">{{ storyDetails.comments_count }}</span></span
+            >
+          </div>
+          <div class="ps-2">
+            <span>
+              <img
+                src="images/chapter.png"
+                class="icon-img"
+                style="padding-left: 5px;"
+                alt="chapter_count"
+              />
+              <span class="icon-text">{{ storyDetails.chapters_count }}</span></span
+            >
+          </div>
+        </div>
+
+        <mat-tab-group>
+          <mat-tab label="Details">
+            <div class="description my-4">
+              {{ storyDetails.description }}
+            </div>
+            <div class="my-3 specifications">
+              <div class="row align-items-center">
+                <div class="col-md-3">Main Characters:</div>
+                <div class="col-md-9">
+                  <mat-chip-set aria-label="Fish selection">
+                    <mat-chip
+                      *ngFor="let character of storyDetails.main_characters"
+                      >{{ character?.name }}</mat-chip
+                    >
+                  </mat-chip-set>
+                </div>
+              </div>
+              <div class="row align-items-center">
+                <div class="col-md-3">
+                  <p>Author:</p>
+                </div>
+                <div class="col-md-9">
+                  <p>{{ storyDetails.user?.username }}</p>
+                </div>
+              </div>
+              <div class="row align-items-center">
+                <div class="col-md-3">
+                  <p>Category:</p>
+                </div>
+                <div class="col-md-9">
+                  <p>{{ storyDetails.category?.category_name }}</p>
+                </div>
+              </div>
+              <div class="row align-items-center">
+                <div class="col-md-3">
+                  <p>Content type:</p>
+                </div>
+                <div class="col-md-9">
+                  <p>{{ storyDetails.content_type }}</p>
+                </div>
+              </div>
+              <div class="row align-items-center">
+                <div class="col-md-3">
+                  <p>Status:</p>
+                </div>
+                <div class="col-md-9">
+                  <p>{{ storyDetails.status }}</p>
+                </div>
+              </div>
+              <!-- <div class="row align-items-center">
+                <div class="col-md-3">
+                  <p>published on:</p>
+                </div>
+                <div class="col-md-9">
+                  <p></p>
+                </div>
+              </div> -->
+              <div class="row align-items-center">
+                <div class="col-md-3">
+                  <p>last update:</p>
+                </div>
+                <div class="col-md-9">
+                  <p>{{ storyDetails.updated_at | date }}</p>
+                </div>
+              </div>
+              <div class="row align-items-center">
+                <div class="col-md-3">
+                  <p>Tags:</p>
+                </div>
+                <div class="col-md-9">
+                  <mat-chip-set aria-label="Fish selection" class="tag">
+                    <mat-chip *ngFor="let tag of storyDetails.tags">{{ tag.name }}</mat-chip>
+                  </mat-chip-set>
+                </div>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="Content">
+            <ul class="my-4">
+              <li *ngFor="let character of storyDetails.main_characters">
+                <a (click)="readStory(storyDetails.id)"
+                  ><p class="bg-white shadow-sm py-3 rounded-2 ps-3 fs-6">
+                    Chapter {{ character.name }}
+                  </p></a
+                >
+              </li>
+            </ul>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+    <hr />
+    <div class="text-start ms-3 my-5">
+      <h3><u>Readers Reviews</u></h3>
+      <app-comments></app-comments>
+    </div>
+
+    <hr />
+    <div class="ms-3 my-5">
+      <h3 class="mb-3 text-start"><u>Recommended Stories</u></h3>
+      <div
+        id="carouselExampleFade"
+        class="carousel slide carousel-fade h-50 text-center my-5"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="images/cover1.jpg"
+              class="img-fluid px-2"
+              alt="cover"
+              style="height: 220px; width: 160px"
+            />
+            <img
+              src="images/cover1.jpg"
+              class="img-fluid px-2"
+              alt="cover"
+              style="height: 220px; width: 160px"
+            />
+            <img
+              src="images/cover1.jpg"
+              class="img-fluid px-2"
+              alt="cover"
+              style="height: 220px; width: 160px"
+            />
+            <img
+              src="images/cover1.jpg"
+              class="img-fluid px-2"
+              alt="cover"
+              style="height: 220px; width: 160px"
+            />
+            <img
+              src="images/cover1.jpg"
+              class="img-fluid px-2"
+              alt="cover"
+              style="height: 220px; width: 160px"
+            />
+            <img
+              src="images/cover1.jpg"
+              class="img-fluid px-2"
+              alt="cover"
+              style="height: 220px; width: 160px"
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev me-4"
+          type="button"
+          data-bs-target="#carouselExampleFade"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next ms-4"
+          type="button"
+          data-bs-target="#carouselExampleFade"
+          data-bs-slide="next"
+        >
+          <span
+            class="carousel-control-next-icon text-black"
+            aria-hidden="true"
+          ></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{a}from"./chunk-NP6UCXIG.mjs";import{Y as o,ba as i}from"./chunk-JFMF6S6U.mjs";var r=class e{constructor(t){this.http=t}apiURL="https://whitesmoke-coyote-648419.hostingersite.com/api";addContact(t){return this.http.post(this.apiURL,t)}getContacts(){return this.http.get(`${this.apiURL}/contact-messages`)}deleteMessage(t){return this.http.delete(`${this.apiURL}/contact-messages/${t}`)}static \u0275fac=function(s){return new(s||e)(i(a))};static \u0275prov=o({token:e,factory:e.\u0275fac,providedIn:"root"})};export{r as a};

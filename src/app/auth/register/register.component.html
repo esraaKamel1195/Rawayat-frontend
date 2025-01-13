@@ -1,0 +1,342 @@
+<section>
+  <mat-stepper [linear]="isLinear" #stepper class="register">
+    <!-- First Step -->
+    <mat-step [stepControl]="registrationForm">
+      <form [formGroup]="registrationForm" class="register-form mt-3">
+        <ng-template matStepLabel>Fill out your information</ng-template>
+        <!-- Username -->
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Username</mat-label>
+              <input
+                matInput
+                placeholder="Enter your username"
+                formControlName="username"
+                maxlength="10"
+                required
+              />
+              <mat-error
+                class="mb-2"
+                *ngIf="
+                  registrationForm.get('username')?.touched &&
+                  registrationForm.get('username')?.hasError('required')
+                "
+              >
+                Username is required
+              </mat-error>
+              <mat-error
+                class="mb-2"
+                *ngIf="registrationForm.get('username')?.hasError('maxlength')"
+              >
+                Maximum length is 10 characters
+              </mat-error>
+              <mat-error
+                id="usernameError"
+                class="mb-2"
+                *ngIf="registrationForm.get('username')?.hasError('notCorrect')"
+              >
+                {{ registrationForm.get("username")?.getError("notCorrect") }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <!-- Email -->
+          <div class="col-md-6">
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Email</mat-label>
+              <input
+                matInput
+                placeholder="pat@example.com"
+                formControlName="email"
+                required
+              />
+              <mat-error
+                class="mb-2"
+                *ngIf="
+                  registrationForm.get('email')?.touched &&
+                  registrationForm.get('email')?.hasError('required')
+                "
+              >
+                Email is required
+              </mat-error>
+              <mat-error
+                class="mb-3"
+                *ngIf="registrationForm.get('email')?.hasError('email')"
+              >
+                Please enter a valid email
+              </mat-error>
+              <mat-error
+                id="emailError"
+                class="mb-2"
+                *ngIf="registrationForm.get('email')?.hasError('notCorrect')"
+              >
+                {{ registrationForm.get("email")?.getError("notCorrect") }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <!-- Password -->
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Password</mat-label>
+              <input
+                matInput
+                [type]="hidePassword ? 'password' : 'text'"
+                formControlName="password"
+                placeholder="password"
+                required
+              />
+              <button
+                type="button"
+                mat-icon-button
+                matSuffix
+                (click)="togglePasswordVisibility()"
+              >
+                <mat-icon>{{
+                  hidePassword ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+              <mat-error
+                *ngIf="
+                  registrationForm.get('password')?.touched &&
+                  registrationForm.get('password')?.hasError('required')
+                "
+                class="pb-1 mb-2"
+              >
+                Password is required
+              </mat-error>
+              <mat-error
+                class="mb-2"
+                *ngIf="
+                  registrationForm.get('password')?.touched &&
+                  registrationForm.get('password')?.hasError('minlength')"
+                class="pb-1"
+              >
+                Password must be at least 8 characters
+              </mat-error>
+              <mat-error
+                id="passwordError"
+                class="mb-3"
+                *ngIf="registrationForm.get('password')?.hasError('notCorrect')"
+              >
+                {{ registrationForm.get("password")?.getError("notCorrect") }}
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-md-6">
+            <!-- Confirm Password -->
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Confirm Password</mat-label>
+              <input
+                matInput
+                [type]="hideConfirmPassword ? 'password' : 'text'"
+                formControlName="confirmPassword"
+                placeholder="Confirm Password"
+                required
+              />
+              <button
+                type="button"
+                mat-icon-button
+                matSuffix
+                (click)="toggleConfirmPasswordVisibility()"
+              >
+                <mat-icon>{{
+                  hideConfirmPassword ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+              <mat-error
+                class="mb-1"
+                *ngIf="
+                  registrationForm.get('confirmPassword')?.touched &&
+                  registrationForm.get('confirmPassword')?.hasError('required')
+                "
+              >
+                Confirm password is required
+              </mat-error>
+              <mat-error
+                class="mb-2"
+                *ngIf="registrationForm.hasError('passwordMismatch')"
+              >
+                Passwords do not match
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <!-- Gender -->
+            <mat-radio-group
+              formControlName="gender"
+              class="form-field"
+              name="gender"
+              required
+            >
+              <label>Gender</label>
+              <mat-radio-button value="male" name="gender"
+                >Male</mat-radio-button
+              >
+              <mat-radio-button value="female" name="gender"
+                >Female</mat-radio-button
+              >
+            </mat-radio-group>
+            <mat-error
+              class="mb-3"
+              *ngIf="
+                registrationForm.get('gender')?.touched &&
+                registrationForm.get('gender')?.hasError('required')
+              "
+            >
+              Gender is required
+            </mat-error>
+            <mat-error
+              id="genderError"
+              class="mb-3"
+              *ngIf="registrationForm.get('gender')?.hasError('notCorrect')"
+            >
+              {{ registrationForm.get("gender")?.getError("notCorrect") }}
+            </mat-error>
+          </div>
+          <div class="col-md-6">
+            <!-- Profile Picture -->
+            <div class="form-field">
+              <label class="mx-2">Profile Picture</label>
+              <input
+                type="file"
+                class="form-control w-100"
+                placeholder="image"
+                (change)="onFileSelect($event)"
+                required
+              />
+              <input
+                type="text"
+                class="form-control w-100"
+                placeholder="image"
+                hidden
+                formControlName="image"
+                required
+              />
+              <img
+                *ngIf="imagePreview"
+                [src]="imagePreview"
+                alt="Image Preview"
+                class="image-preview"
+              />
+
+              <mat-error
+                class="mb-3"
+                *ngIf="
+                  registrationForm.get('image')?.touched &&
+                  registrationForm.get('image')?.hasError('required')
+                "
+              >
+                Image is required
+              </mat-error>
+              <mat-error
+                id="imageError"
+                class="mb-3"
+                *ngIf="registrationForm.get('image')?.hasError('notCorrect')"
+              >
+                {{ registrationForm.get("image")?.getError("notCorrect") }}
+              </mat-error>
+            </div>
+          </div>
+        </div>
+
+        <div class="error my-3 py-3" *ngIf="errorMessage()">
+          <span
+            ><mat-error>{{ errorMessage() }}</mat-error></span
+          >
+        </div>
+        <br />
+        <div class="text-end my-3">
+          <button
+            mat-button
+            type="button"
+            class="btn-black"
+            (click)="stepper.reset(); registrationForm.reset()"
+          >
+            Reset
+          </button>
+          <button
+            mat-button
+            type="submit"
+            [disabled]="!registrationForm.valid"
+            class="btn"
+            (click)="onSubmit()"
+          >
+            Register
+          </button>
+        </div>
+      </form>
+    </mat-step>
+
+    <!-- second Step -->
+    <mat-step [stepControl]="secondFormGroup" label="Choose your categories">
+      <form [formGroup]="secondFormGroup" (ngSubmit)="storeCategory()">
+        <fieldset class="color-black">
+          <legend>Choose Your Interests</legend>
+          <div
+            *ngIf="secondFormGroup.controls['categories'].errors?.['maxSelected']"
+            class="error"
+          >
+            You can select up to 3 categories only.
+          </div>
+
+          <div class="categories-container">
+            <div
+              *ngFor="let category of categories; let i = index"
+              class="category-item"
+            >
+              <input
+                type="checkbox"
+                class="chip bounce"
+                role="switch"
+                [value]="category.category_name"
+                (change)="onCategChange($event, category)"
+                placeholder="category name"
+                style="--color: #fa3"
+              />
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="py-3 d-flex justify-content-between">
+          <div>
+            <button
+              mat-button
+              type="button"
+              matStepperPrevious
+              class="btn-dark"
+            >
+              Back
+            </button>
+          </div>
+          <div>
+            <button mat-button type="submit" class="btn-dark">
+              Store
+            </button>
+          </div>
+        </div>
+      </form>
+    </mat-step>
+
+    <!-- final Step -->
+    <mat-step>
+      <ng-template matStepLabel>You Successfully Registered Now</ng-template>
+      <p class="text-center p-5">
+        <img src="images/thanks.png" alt="thanks" />
+      </p>
+      <div class="error my-3 py-3" *ngIf="errorMessage()">
+        <mat-error>{{ errorMessage() }}</mat-error>
+      </div>
+      <div class="text-center">
+        <button mat-button type="button" class="btn" routerLink="/">
+          Redirect to home
+        </button>
+        <br />
+        <button mat-button class="btn-black" matStepperPrevious>Back</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</section>
