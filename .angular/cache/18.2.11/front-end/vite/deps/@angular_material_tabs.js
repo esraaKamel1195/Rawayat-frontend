@@ -7,7 +7,6 @@ import {
   CdkScrollable,
   ViewportRuler
 } from "./chunk-ESTE7LR4.js";
-import "./chunk-BHXCAG5T.js";
 import {
   SharedResizeObserver
 } from "./chunk-QTDJANSO.js";
@@ -18,6 +17,7 @@ import {
   transition,
   trigger
 } from "./chunk-D2FQFLBR.js";
+import "./chunk-BHXCAG5T.js";
 import {
   Directionality,
   MAT_RIPPLE_GLOBAL_OPTIONS,
@@ -111,11 +111,11 @@ import {
   ɵɵtextInterpolate,
   ɵɵviewQuery
 } from "./chunk-UORFUM4A.js";
+import "./chunk-5OPE3T2R.js";
 import {
   fromEvent,
   merge
 } from "./chunk-4N4GOYJH.js";
-import "./chunk-5OPE3T2R.js";
 import {
   BehaviorSubject,
   EMPTY,

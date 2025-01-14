@@ -4,7 +4,6 @@ import {
   ScrollDispatcher,
   ViewportRuler
 } from "./chunk-ESTE7LR4.js";
-import "./chunk-BHXCAG5T.js";
 import {
   animate,
   state,
@@ -12,6 +11,7 @@ import {
   transition,
   trigger
 } from "./chunk-D2FQFLBR.js";
+import "./chunk-BHXCAG5T.js";
 import {
   Directionality,
   MatCommonModule
@@ -84,11 +84,11 @@ import {
   ɵɵtemplate,
   ɵɵviewQuery
 } from "./chunk-UORFUM4A.js";
+import "./chunk-5OPE3T2R.js";
 import {
   fromEvent,
   merge
 } from "./chunk-4N4GOYJH.js";
-import "./chunk-5OPE3T2R.js";
 import {
   Subject,
   debounceTime,
