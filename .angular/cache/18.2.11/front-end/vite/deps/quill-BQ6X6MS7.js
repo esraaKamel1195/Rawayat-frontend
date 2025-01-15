@@ -1,4 +1,3 @@
-import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
   __commonJS,
   __export,
@@ -6,7 +5,7 @@ import {
   __spreadProps,
   __spreadValues,
   __toESM
-} from "./chunk-LDODSSGN.js";
+} from "./chunk-4MWRP73S.js";
 
 // node_modules/fast-diff/diff.js
 var require_diff = __commonJS({
@@ -11710,17 +11709,15 @@ var break_default = Break;
 // node_modules/quill/blots/text.js
 var Text2 = class extends TextBlot$1 {
 };
+var entityMap = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&#39;"
+};
 function escapeText(text) {
-  return text.replace(/[&<>"']/g, (s) => {
-    const entityMap = {
-      "&": "&amp;",
-      "<": "&lt;",
-      ">": "&gt;",
-      '"': "&quot;",
-      "'": "&#39;"
-    };
-    return entityMap[s];
-  });
+  return text.replace(/[&<>"']/g, (s) => entityMap[s]);
 }
 
 // node_modules/quill/blots/inline.js
@@ -12826,7 +12823,8 @@ function convertHTML(blot, index, length) {
     return blot.html(index, length);
   }
   if (blot instanceof Text2) {
-    return escapeText(blot.value().slice(index, index + length));
+    const escapedText = escapeText(blot.value().slice(index, index + length));
+    return escapedText.replaceAll(" ", "&nbsp;");
   }
   if (blot instanceof ParentBlot$1) {
     if (blot.statics.blotName === "list-container") {
@@ -13202,7 +13200,7 @@ var Quill = class _Quill {
   };
   static events = emitter_default.events;
   static sources = emitter_default.sources;
-  static version = false ? "dev" : "2.0.2";
+  static version = false ? "dev" : "2.0.3";
   static imports = {
     delta: import_quill_delta3.default,
     parchment: parchment_exports,
@@ -15396,18 +15394,15 @@ function matchText(node, delta, scroll) {
     if (text.trim().length === 0 && text.includes("\n") && !isBetweenInlineElements(node, scroll)) {
       return delta;
     }
-    const replacer = (collapse, match2) => {
-      const replaced = match2.replace(/[^\u00a0]/g, "");
-      return replaced.length < 1 && collapse ? " " : replaced;
-    };
-    text = text.replace(/\r\n/g, " ").replace(/\n/g, " ");
-    text = text.replace(/\s\s+/g, replacer.bind(replacer, true));
+    text = text.replace(/[^\S\u00a0]/g, " ");
+    text = text.replace(/ {2,}/g, " ");
     if (node.previousSibling == null && node.parentElement != null && isLine2(node.parentElement, scroll) || node.previousSibling instanceof Element && isLine2(node.previousSibling, scroll)) {
-      text = text.replace(/^\s+/, replacer.bind(replacer, false));
+      text = text.replace(/^ /, "");
     }
     if (node.nextSibling == null && node.parentElement != null && isLine2(node.parentElement, scroll) || node.nextSibling instanceof Element && isLine2(node.nextSibling, scroll)) {
-      text = text.replace(/\s+$/, replacer.bind(replacer, false));
+      text = text.replace(/ $/, "");
     }
+    text = text.replaceAll(" ", " ");
   }
   return delta.insert(text);
 }
@@ -17817,8 +17812,16 @@ core_default.register({
   "ui/tooltip": tooltip_default
 }, true);
 var quill_default = core_default;
+var export_AttributeMap = import_quill_delta9.AttributeMap;
+var export_Delta = import_quill_delta9.default;
+var export_Op = import_quill_delta9.Op;
+var export_OpIterator = import_quill_delta9.OpIterator;
 export {
+  export_AttributeMap as AttributeMap,
+  export_Delta as Delta,
   module_default as Module,
+  export_Op as Op,
+  export_OpIterator as OpIterator,
   parchment_exports as Parchment,
   Range,
   quill_default as default
@@ -17847,4 +17850,4 @@ lodash-es/lodash.js:
    * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
    *)
 */
-//# sourceMappingURL=quill-R6KNO36L.js.map
+//# sourceMappingURL=quill-BQ6X6MS7.js.map

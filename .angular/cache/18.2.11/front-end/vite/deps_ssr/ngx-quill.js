@@ -9,7 +9,7 @@ import {
 import {
   NG_VALIDATORS,
   NG_VALUE_ACCESSOR
-} from "./chunk-M4XUY7IU.js";
+} from "./chunk-DHFBGRFP.js";
 import {
   DOCUMENT,
   NgClass,
@@ -209,7 +209,7 @@ var QuillService = class _QuillService {
       if (!this.Quill) {
         const maybePatchedAddEventListener = this.document.addEventListener;
         this.document.addEventListener = this.document["__zone_symbol__addEventListener"] || this.document.addEventListener;
-        const quillImport = yield import("./quill-R6KNO36L.js");
+        const quillImport = yield import("./quill-C7XRVLPA.js");
         this.document.addEventListener = maybePatchedAddEventListener;
         this.Quill = // seems like esmodules have nested "default"
         quillImport.default?.default ?? quillImport.default ?? quillImport;

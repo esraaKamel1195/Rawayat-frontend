@@ -5586,7 +5586,7 @@ function mapToCanDeactivate(providers) {
 function mapToResolve(provider) {
   return (...params) => inject(provider).resolve(...params);
 }
-var VERSION = new Version("18.2.11");
+var VERSION = new Version("18.2.13");
 export {
   ActivatedRoute,
   ActivatedRouteSnapshot,
@@ -5670,7 +5670,7 @@ export {
 
 @angular/router/fesm2022/router.mjs:
   (**
-   * @license Angular v18.2.11
+   * @license Angular v18.2.13
    * (c) 2010-2024 Google LLC. https://angular.io/
    * License: MIT
    *)

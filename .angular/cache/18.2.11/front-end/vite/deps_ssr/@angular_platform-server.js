@@ -2,19 +2,19 @@ import { createRequire } from 'module';const require = createRequire(import.meta
 import {
   NoopAnimationsModule,
   provideNoopAnimations
-} from "./chunk-65IRMGZF.js";
-import "./chunk-UHIENJNC.js";
+} from "./chunk-HZDVVE7K.js";
+import "./chunk-APVJERFQ.js";
 import {
   BrowserDomAdapter,
   BrowserModule,
   EVENT_MANAGER_PLUGINS,
   EventManagerPlugin
 } from "./chunk-XNGFLMWU.js";
+import "./chunk-HMBY5CSG.js";
 import {
   HTTP_ROOT_INTERCEPTOR_FNS,
   HttpClientModule
 } from "./chunk-5T5A6CSV.js";
-import "./chunk-J5E6O2JL.js";
 import {
   DOCUMENT,
   NullViewportScroller,
@@ -16936,7 +16936,7 @@ function renderApplication(bootstrap, options) {
     }));
   });
 }
-var VERSION = new Version("18.2.11");
+var VERSION = new Version("18.2.13");
 export {
   BEFORE_APP_SERIALIZED,
   INITIAL_CONFIG,
@@ -16957,7 +16957,7 @@ export {
 
 @angular/platform-server/fesm2022/platform-server.mjs:
   (**
-   * @license Angular v18.2.11
+   * @license Angular v18.2.13
    * (c) 2010-2024 Google LLC. https://angular.io/
    * License: MIT
    *)

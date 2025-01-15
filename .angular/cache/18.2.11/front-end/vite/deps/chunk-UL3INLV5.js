@@ -1,28 +1,27 @@
-import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
   SharedResizeObserver
-} from "./chunk-EFDLCR3G.js";
+} from "./chunk-QTDJANSO.js";
 import {
   animate,
   state,
   style,
   transition,
   trigger
-} from "./chunk-J5E6O2JL.js";
+} from "./chunk-OFQAQRUQ.js";
 import {
   Directionality,
   MatCommonModule
-} from "./chunk-DMSHC7JY.js";
+} from "./chunk-HFCQKKEG.js";
 import {
   ObserversModule,
   Platform,
   coerceBooleanProperty
-} from "./chunk-WATIMDZY.js";
+} from "./chunk-IVHQCPAG.js";
 import {
   CommonModule,
   DOCUMENT,
   NgTemplateOutlet
-} from "./chunk-7E3RN2EZ.js";
+} from "./chunk-QO7JRITU.js";
 import {
   ANIMATION_MODULE_TYPE,
   Attribute,
@@ -82,20 +81,17 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵviewQuery
-} from "./chunk-MTEHKME3.js";
+} from "./chunk-UORFUM4A.js";
 import {
-  require_cjs
-} from "./chunk-X5NLSII4.js";
+  merge
+} from "./chunk-4N4GOYJH.js";
 import {
-  require_operators
-} from "./chunk-IGNQQJCH.js";
-import {
-  __toESM
-} from "./chunk-LDODSSGN.js";
+  Subject,
+  Subscription,
+  takeUntil
+} from "./chunk-FHTVLBLO.js";
 
 // node_modules/@angular/material/fesm2022/form-field.mjs
-var import_rxjs = __toESM(require_cjs(), 1);
-var import_operators = __toESM(require_operators(), 1);
 var _c0 = ["notch"];
 var _c1 = ["matFormFieldNotchedOutline", ""];
 var _c2 = ["*"];
@@ -517,7 +513,7 @@ var MatFormFieldFloatingLabel = class _MatFormFieldFloatingLabel {
     this._resizeObserver = inject(SharedResizeObserver);
     this._ngZone = inject(NgZone);
     this._parent = inject(FLOATING_LABEL_PARENT);
-    this._resizeSubscription = new import_rxjs.Subscription();
+    this._resizeSubscription = new Subscription();
   }
   ngOnDestroy() {
     this._resizeSubscription.unsubscribe();
@@ -897,7 +893,7 @@ var MatFormField = class _MatFormField {
     this._labelId = `mat-mdc-form-field-label-${nextUniqueId++}`;
     this._hintLabelId = `mat-mdc-hint-${nextUniqueId++}`;
     this._subscriptAnimationState = "";
-    this._destroyed = new import_rxjs.Subject();
+    this._destroyed = new Subject();
     this._isFocused = null;
     this._needsOutlineLabelOffsetUpdate = false;
     this._previousControl = null;
@@ -969,7 +965,7 @@ var MatFormField = class _MatFormField {
     });
     this._valueChanges?.unsubscribe();
     if (control.ngControl && control.ngControl.valueChanges) {
-      this._valueChanges = control.ngControl.valueChanges.pipe((0, import_operators.takeUntil)(this._destroyed)).subscribe(() => this._changeDetectorRef.markForCheck());
+      this._valueChanges = control.ngControl.valueChanges.pipe(takeUntil(this._destroyed)).subscribe(() => this._changeDetectorRef.markForCheck());
     }
   }
   _checkPrefixAndSuffixTypes() {
@@ -981,7 +977,7 @@ var MatFormField = class _MatFormField {
   /** Initializes the prefix and suffix containers. */
   _initializePrefixAndSuffix() {
     this._checkPrefixAndSuffixTypes();
-    (0, import_rxjs.merge)(this._prefixChildren.changes, this._suffixChildren.changes).subscribe(() => {
+    merge(this._prefixChildren.changes, this._suffixChildren.changes).subscribe(() => {
       this._checkPrefixAndSuffixTypes();
       this._changeDetectorRef.markForCheck();
     });
@@ -1035,7 +1031,7 @@ var MatFormField = class _MatFormField {
     }, {
       injector: this._injector
     });
-    this._dir.change.pipe((0, import_operators.takeUntil)(this._destroyed)).subscribe(() => this._needsOutlineLabelOffsetUpdate = true);
+    this._dir.change.pipe(takeUntil(this._destroyed)).subscribe(() => this._needsOutlineLabelOffsetUpdate = true);
   }
   /** Whether the floating label should always float or not. */
   _shouldAlwaysFloat() {
@@ -1541,4 +1537,4 @@ export {
   MatFormField,
   MatFormFieldModule
 };
-//# sourceMappingURL=chunk-QAJLBDPP.js.map
+//# sourceMappingURL=chunk-UL3INLV5.js.map

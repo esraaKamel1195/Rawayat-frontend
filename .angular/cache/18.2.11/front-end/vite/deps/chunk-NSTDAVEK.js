@@ -1,7 +1,6 @@
-import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
   getDOM
-} from "./chunk-7E3RN2EZ.js";
+} from "./chunk-QO7JRITU.js";
 import {
   ChangeDetectorRef,
   Directive,
@@ -42,22 +41,21 @@ import {
   ɵɵdirectiveInject,
   ɵɵgetInheritedFactory,
   ɵɵlistener
-} from "./chunk-MTEHKME3.js";
+} from "./chunk-UORFUM4A.js";
 import {
-  require_cjs
-} from "./chunk-X5NLSII4.js";
+  forkJoin
+} from "./chunk-4N4GOYJH.js";
 import {
-  require_operators
-} from "./chunk-IGNQQJCH.js";
+  Subject,
+  from,
+  map
+} from "./chunk-FHTVLBLO.js";
 import {
   __spreadProps,
-  __spreadValues,
-  __toESM
-} from "./chunk-LDODSSGN.js";
+  __spreadValues
+} from "./chunk-4MWRP73S.js";
 
 // node_modules/@angular/forms/fesm2022/forms.mjs
-var import_rxjs = __toESM(require_cjs(), 1);
-var import_operators = __toESM(require_operators(), 1);
 var BaseControlValueAccessor = class _BaseControlValueAccessor {
   constructor(_renderer, _elementRef) {
     this._renderer = _renderer;
@@ -675,7 +673,7 @@ function isPresent(o) {
   return o != null;
 }
 function toObservable(value) {
-  const obs = isPromise(value) ? (0, import_rxjs.from)(value) : value;
+  const obs = isPromise(value) ? from(value) : value;
   if ((typeof ngDevMode === "undefined" || ngDevMode) && !isSubscribable(obs)) {
     let errorMessage = `Expected async validator to return Promise or Observable.`;
     if (typeof value === "object") {
@@ -720,7 +718,7 @@ function composeAsync(validators) {
   if (presentValidators.length == 0) return null;
   return function(control) {
     const observables = executeValidators(control, presentValidators).map(toObservable);
-    return (0, import_rxjs.forkJoin)(observables).pipe((0, import_operators.map)(mergeErrors));
+    return forkJoin(observables).pipe(map(mergeErrors));
   };
 }
 function composeAsyncValidators(validators) {
@@ -1413,7 +1411,7 @@ var AbstractControl = class {
     this.pristineReactive = signal(true);
     this._touched = computed(() => this.touchedReactive());
     this.touchedReactive = signal(false);
-    this._events = new import_rxjs.Subject();
+    this._events = new Subject();
     this.events = this._events.asObservable();
     this._onDisabledChange = [];
     this._assignValidators(validators);
@@ -6343,7 +6341,7 @@ var UntypedFormBuilder = class _UntypedFormBuilder extends FormBuilder {
     }]
   }], null, null);
 })();
-var VERSION = new Version("18.2.11");
+var VERSION = new Version("18.2.13");
 var FormsModule = class _FormsModule {
   /**
    * @description
@@ -6509,9 +6507,9 @@ export {
 
 @angular/forms/fesm2022/forms.mjs:
   (**
-   * @license Angular v18.2.11
+   * @license Angular v18.2.13
    * (c) 2010-2024 Google LLC. https://angular.io/
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-M4XUY7IU.js.map
+//# sourceMappingURL=chunk-NSTDAVEK.js.map

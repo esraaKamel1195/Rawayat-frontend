@@ -78,11 +78,11 @@ import {
   ɵɵqueryRefresh,
   ɵɵsanitizeUrlOrResourceUrl
 } from "./chunk-UORFUM4A.js";
-import "./chunk-5OPE3T2R.js";
 import {
   defer,
   isObservable
 } from "./chunk-4N4GOYJH.js";
+import "./chunk-5OPE3T2R.js";
 import {
   BehaviorSubject,
   ConnectableObservable,
@@ -5613,7 +5613,7 @@ function mapToCanDeactivate(providers) {
 function mapToResolve(provider) {
   return (...params) => inject(provider).resolve(...params);
 }
-var VERSION = new Version("18.2.11");
+var VERSION = new Version("18.2.13");
 export {
   ActivatedRoute,
   ActivatedRouteSnapshot,
@@ -5697,7 +5697,7 @@ export {
 
 @angular/router/fesm2022/router.mjs:
   (**
-   * @license Angular v18.2.11
+   * @license Angular v18.2.13
    * (c) 2010-2024 Google LLC. https://angular.io/
    * License: MIT
    *)
