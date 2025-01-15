@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CategoryService } from '../../../services/category.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from '../../../interfaces/category';
 import { Tag } from '../../../interfaces/tag';
 

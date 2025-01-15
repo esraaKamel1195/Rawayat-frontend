@@ -15,6 +15,10 @@ h3.title {
   width: 200px;
 }
 
+.book-card {
+  cursor: pointer;
+}
+
 .book-card img {
   object-fit: cover;
   margin: 0px 0 0px;

@@ -14,11 +14,18 @@
         class="col-md-3 col-sm-6 pb-3 my-2"
         *ngFor="let story of visibleStories"
         class="book-card"
+        (click)="showDetails(story.id)"
       >
         <img
           mat-card-image
           *ngIf="story.cover_image"
           [src]="story.cover_image"
+          alt="{{ story.title }}"
+        />
+        <img
+          mat-card-image
+          *ngIf="story.advertisement_image"
+          [src]="story.advertisement_image"
           alt="{{ story.title }}"
         />
         <mat-card-header>
@@ -34,7 +41,7 @@
           <button
             mat-button
             color="primary"
-            routerLink="/story/{{ story.id }}/details"
+            (click)="showDetails(story.id)"
           >
             learn More
           </button>

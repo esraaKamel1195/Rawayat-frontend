@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Params, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { Router } from '@angular/router';
 import { StoryService } from '../../../services/story.service';
 import { Story } from '../../../interfaces/story';
 import { CategoryCarouselComponent } from '../../homepage/category-carousel/category-carousel.component';
@@ -27,6 +28,7 @@ export class StoriesComponent implements OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
+    private router: Router,
     private storyService: StoryService
   ) {}
 
@@ -35,38 +37,31 @@ export class StoriesComponent implements OnInit {
       this.categoryId = params['category_id'];
     });
 
-    this.categoryChange();
-
-    // this.storyService.getAllStories().subscribe({
-    //   next: (stories: Story[]) => {
-    //     this.stories = stories;
-    //   },
-    //   error: (error) => {
-    //     console.log(error);
-    //   },
-    // });
-
-    // this.storyService.getAdvertisementStoryByLatestStory().subscribe({
-    //   next: (stories: Story[]) => {
-    //     console.log('latest', stories);
-    //     this.stories = stories;
-    //   },
-    //   error: (error) => {
-    //     console.log(error);
-    //   },
-    // });
+    if (this.router.url.includes(`stories/latest-stories`)) {
+      this.storyService.getAdvertisementStoryByLatestStory().subscribe({
+        next: (stories: Story[]) => {
+          console.log('latest', stories);
+          this.stories = stories;
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    } else if (this.router.url.includes(`stories/popular-stories`)) {
+      this.storyService.getTopStoriesByViews().subscribe({
+        next: (stories: Story[]) => {
+          console.log('top stories by views', stories);
+          this.stories = stories;
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    } else if (this.categoryId && this.categoryId !== 0) {
+      this.categoryChange();
+    }
 
     // this.storyService.getStoriesByTag(this.tagId).subscribe({
-    //   next: (stories: Story[]) => {
-    //     console.log('top stories by views', stories);
-    //     this.stories = stories;
-    //   },
-    //   error: (error) => {
-    //     console.log(error);
-    //   },
-    // });
-
-    // this.storyService.getTopStoriesByViews().subscribe({
     //   next: (stories: Story[]) => {
     //     console.log('top stories by views', stories);
     //     this.stories = stories;

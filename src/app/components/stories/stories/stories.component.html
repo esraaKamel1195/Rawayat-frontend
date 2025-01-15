@@ -1,5 +1,7 @@
 <div class="container my-5">
-  <app-category-carousel (onCategoryChange)="categoryChange($event)"></app-category-carousel>
+  <app-category-carousel
+    (onCategoryChange)="categoryChange($event)"
+  ></app-category-carousel>
 </div>
 <div class="container">
   <div class="row m-3">
@@ -11,12 +13,23 @@
         <img
           mat-card-image
           class="story-img m-2"
-          src="{{ story.cover_image }}"
-          alt="cover_image"
+          *ngIf="story.advertisement_image"
+          src="{{ story.advertisement_image }}"
+          alt="{{ story.title }}"
         />
-        <mat-card-content class="pt-2" routerLink="/story/{{ story.id }}/details">
+        <img
+          mat-card-image
+          class="story-img m-2"
+          *ngIf="story.cover_image"
+          src="{{ story.cover_image }}"
+          alt="{{ story.title }}"
+        />
+        <mat-card-content
+          class="pt-2"
+          routerLink="/story/{{ story.id }}/details"
+        >
           <a>
-            <p mat-card-title class="py-2 title">{{ story.title }}.</p>
+            <p mat-card-title class="py-2 title">{{ story.title }}</p>
           </a>
 
           <div class="d-flex justify-content-start">
@@ -25,9 +38,11 @@
                 <img
                   src="images/reading-book.png"
                   style="height: 20px; width: 20px"
-                  alt=""
+                  alt="reading-book"
                 />
-                <span style="padding-left: 3px; font-size: 12px">{{ story.readers_count }}</span>
+                <span style="padding-left: 3px; font-size: 12px">{{
+                  story.readers_count
+                }}</span>
               </span>
             </div>
             <div class="ps-2">
@@ -35,7 +50,7 @@
                 <img
                   src="images/feedback.png"
                   style="height: 20px; width: 20px"
-                  alt=""
+                  alt="feedback"
                 />
                 <span style="padding-left: 3px; font-size: 12px">
                   {{ story.votes_count }}</span
@@ -47,9 +62,11 @@
                 <img
                   src="images/feedback-2.png"
                   style="height: 20px; width: 20px"
-                  alt=""
+                  alt="feedback"
                 />
-                <span style="font-size: 12px">{{ story.comments_count }}</span></span
+                <span style="font-size: 12px">{{
+                  story.comments_count
+                }}</span></span
               >
             </div>
             <div class="ps-2">
@@ -57,9 +74,11 @@
                 <img
                   src="images/chapter.png"
                   style="height: 13px; width: 20px"
-                  alt=""
+                  alt="chapter"
                 />
-                <span style="font-size: 12px">{{ story.chapters_count }}</span></span
+                <span style="font-size: 12px">{{
+                  story.chapters_count
+                }}</span></span
               >
             </div>
           </div>

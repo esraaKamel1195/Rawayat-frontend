@@ -5,7 +5,7 @@ export const adminRoutes: Routes = [
   {
     path: '',
     canActivate: [AuthGuard],
-    data: { role: 'admin' },
+    data: { role: ['admin'] },
     loadComponent: () =>
       import('../../app/admin/admin.component').then(
         (mod) => mod.AdminComponent
@@ -14,7 +14,7 @@ export const adminRoutes: Routes = [
       {
         path: 'users',
         canActivate: [AuthGuard],
-        data: { role: 'admin' },
+        data: { role: ['admin'] },
         loadComponent: () =>
           import('../../app/admin/users/users.component').then(
             (mod) => mod.UsersComponent
@@ -24,7 +24,7 @@ export const adminRoutes: Routes = [
       {
         path: 'categories',
         canActivate: [AuthGuard],
-        data: { role: 'admin' },
+        data: { role: ['admin'] },
         loadComponent: () =>
           import(
             '../../app/admin/category/show-all-categories/show-all-categories.component'
@@ -34,7 +34,7 @@ export const adminRoutes: Routes = [
       {
         path: 'category/create',
         canActivate: [AuthGuard],
-        data: { role: 'admin' },
+        data: { role: ['admin'] },
         loadComponent: () =>
           import(
             '../../app/admin/category/create-category/create-category.component'
@@ -44,7 +44,7 @@ export const adminRoutes: Routes = [
       {
         path: 'category/update/:id',
         canActivate: [AuthGuard],
-        data: { role: 'admin' },
+        data: { role: ['admin'] },
         loadComponent: () =>
           import(
             '../../app/admin/category/create-category/create-category.component'
@@ -54,7 +54,7 @@ export const adminRoutes: Routes = [
       {
         path: 'chapter/create',
         canActivate: [AuthGuard],
-        data: { role: 'admin' },
+        data: { role: ['admin'] },
         loadComponent: () =>
           import('./chapter/create-chapter/create-chapter.component').then(
             (mod) => mod.CreateChapterComponent
@@ -64,7 +64,7 @@ export const adminRoutes: Routes = [
       {
         path: 'chapter/edit',
         canActivate: [AuthGuard],
-        data: { role: 'admin' },
+        data: { role: ['admin'] },
         loadComponent: () =>
           import('./chapter/create-chapter/create-chapter.component').then(
             (mod) => mod.CreateChapterComponent
@@ -74,7 +74,7 @@ export const adminRoutes: Routes = [
       {
         path: 'stories',
         canActivate: [AuthGuard],
-        data: { role: 'admin' },
+        data: { role: ['admin'] },
         loadComponent: () =>
           import('./story/stories-list/stories-list.component').then(
             (mod) => mod.StoriesListComponent
@@ -84,7 +84,7 @@ export const adminRoutes: Routes = [
       {
         path: 'deleted-stories',
         canActivate: [AuthGuard],
-        data: { role: 'admin' },
+        data: { role: ['admin'] },
         loadComponent: () =>
           import('./story/stories-list/stories-list.component').then(
             (mod) => mod.StoriesListComponent
@@ -94,7 +94,7 @@ export const adminRoutes: Routes = [
       {
         path: 'story/create',
         canActivate: [AuthGuard],
-        data: { role: 'admin' },
+        data: { role: ['admin'] },
         loadComponent: () =>
           import('./story/create-story/create-story.component').then(
             (mod) => mod.CreateStoryComponent
@@ -104,7 +104,7 @@ export const adminRoutes: Routes = [
       {
         path: 'story/edit',
         canActivate: [AuthGuard],
-        data: { role: 'admin' },
+        data: { role: ['admin'] },
         loadComponent: () =>
           import('./story/create-story/create-story.component').then(
             (mod) => mod.CreateStoryComponent
@@ -114,7 +114,7 @@ export const adminRoutes: Routes = [
       {
         path: 'tags/:categoryId',
         canActivate: [AuthGuard],
-        data: { role: 'admin' },
+        data: { role: ['admin'] },
         loadComponent: () =>
           import('./tags/tags/tags.component').then(
             (mod) => mod.TagsComponent
@@ -124,7 +124,7 @@ export const adminRoutes: Routes = [
       {
         path: 'reviews',
         canActivate: [AuthGuard],
-        data: { role: 'admin' },
+        data: { role: ['admin'] },
         loadComponent: () =>
           import('./reviews/reviews/reviews.component').then(
             (mod) => mod.ReviewsComponent
@@ -134,7 +134,7 @@ export const adminRoutes: Routes = [
       {
         path: 'start-reading',
         canActivate: [AuthGuard],
-        data: { role: 'admin' },
+        data: { role: ['admin'] },
         loadComponent: () =>
           import('./start-reading/start-reading/start-reading.component').then(
             (mod) => mod.StartReadingComponent
@@ -144,7 +144,7 @@ export const adminRoutes: Routes = [
       {
         path: 'reading-later',
         canActivate: [AuthGuard],
-        data: { role: 'admin' },
+        data: { role: ['admin'] },
         loadComponent: () =>
           import('./reading-later/reading-later/reading-later.component').then(
             (mod) => mod.ReadingLaterComponent
@@ -154,7 +154,7 @@ export const adminRoutes: Routes = [
       {
         path: 'contacts',
         canActivate: [AuthGuard],
-        data: { role: 'admin' },
+        data: { role: ['admin'] },
         loadComponent: () =>
           import('../../app/admin/contact/contact.component').then(
             (mod) => mod.ContactComponent

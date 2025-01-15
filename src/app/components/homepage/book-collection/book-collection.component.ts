@@ -10,7 +10,10 @@ import { Story } from '../../../interfaces/story';
   selector: 'app-book-collection',
   standalone: true,
   imports: [
-    RouterModule, CommonModule, MatCardModule, MatButtonModule
+    RouterModule,
+    CommonModule,
+    MatCardModule,
+    MatButtonModule
   ],
   templateUrl: './book-collection.component.html',
   styleUrl: './book-collection.component.css',
@@ -20,6 +23,7 @@ export class BookCollectionComponent implements OnInit {
   booksPerPage: number [] = [];
   stories: Array<Story> = [];
   @Input({ required: true }) title: string = '';
+  @Input({ required: true }) currentPage: string = '';
   @Input({ required: true }) routingItem: string = '';
 
   constructor(
@@ -29,7 +33,7 @@ export class BookCollectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(this.router.url.includes(`stories/latest-stories`)) {
+    if(this.currentPage === `stories/latest-stories`) {
       this.storiesServices.getAdvertisementStoryByLatestStory().subscribe({
         next: (res) => {
           console.log('latest', res);
@@ -41,7 +45,7 @@ export class BookCollectionComponent implements OnInit {
       });
     }
 
-    if(this.router.url.includes(`stories/popular-stories`)) {
+    else if(this.currentPage === `stories/popular-stories`) {
       this.storiesServices.getTopStoriesByViews().subscribe({
         next: (res) => {
           console.log('getTopStoriesByViews', res);
@@ -50,6 +54,16 @@ export class BookCollectionComponent implements OnInit {
         error: (error) => {
           console.log(error);
         },
+      });
+    } else {
+      this.storiesServices.getAdvertisementStoryByLatestStory().subscribe({
+        next: (res) => {
+          console.log('latest', res);
+          this.stories = res;
+          this.loadInit();
+        }, error: (error) => {
+          console.log(error);
+        }
       });
     }
   }

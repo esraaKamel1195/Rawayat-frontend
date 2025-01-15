@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { ChangeDetectionStrategy, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -17,9 +18,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { merge } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { CommonModule } from '@angular/common';
-import { AuthService } from '../../services/auth/auth.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
+import { AuthService } from '../../services/auth/auth.service';
 // import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
 
 @Component({
@@ -109,8 +109,10 @@ export class LoginComponent {
         localStorage.setItem('token', JSON.stringify(response.token));
         localStorage.setItem('user', JSON.stringify(response.user));
         if (response.user.role === 'admin') {
+          console.log('if condition admin');
           this.router.navigateByUrl('/admin/categories');
         } else if (response.user.role === 'reader') {
+          console.log('if condition reader');
           this.router.navigateByUrl('/home');
         }
       },
