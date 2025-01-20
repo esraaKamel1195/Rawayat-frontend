@@ -2,8 +2,9 @@
   class="navbar navbar-expand-lg bg-white shadow d-flex justify-content-between ps-3"
 >
   <div>
-    <a href="" class="navbar-brand">
-      <img src="images/rewayati-transparent.png" alt="Logo" class="logo" />
+    <a href="/" class="navbar-brand">
+      <img src="images/rawayat-logo.jpg" alt="Logo" class="logo" />
+      <h3 class="title-logo">Rawayat</h3>
     </a>
   </div>
   <button
@@ -18,17 +19,29 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ms-auto">
-      <li *ngIf="!router.url.includes('auth') && userRole === 'reader'" class="nav-item px-3">
+    <ul
+      *ngIf="!router.url.includes('auth') && userRole === 'reader'"
+      class="navbar-nav ms-auto"
+    >
+      <li
+        *ngIf="!router.url.includes('auth') && userRole === 'reader'"
+        class="nav-item px-3"
+      >
         <a routerLink="home" routerLinkActive="active" class="nav-link">Home</a>
       </li>
-      <li *ngIf="!router.url.includes('auth') && userRole === 'reader'" class="nav-item px-3">
+      <li
+        *ngIf="!router.url.includes('auth') && userRole === 'reader'"
+        class="nav-item px-3"
+      >
         <a routerLink="about" routerLinkActive="active" class="nav-link"
           >About</a
         >
       </li>
 
-      <li *ngIf="!router.url.includes('auth') && userRole === 'reader'" class="nav-item px-3 dropdown">
+      <li
+        *ngIf="!router.url.includes('auth') && userRole === 'reader'"
+        class="nav-item px-3 dropdown"
+      >
         <a
           routerLinkActive="active"
           class="nav-link dropdown-toggle"
@@ -38,10 +51,7 @@
           aria-expanded="false"
           >Category</a
         >
-        <ul
-          class="dropdown-menu mt-2"
-          aria-labelledby="navbarDropdown"
-        >
+        <ul class="dropdown-menu mt-2" aria-labelledby="navbarDropdown">
           <div class="row">
             <div class="col-3" *ngFor="let category of categories">
               <a class="dropdown-item" routerLinkActive="active">{{
@@ -51,17 +61,26 @@
           </div>
         </ul>
       </li>
-      <li *ngIf="!router.url.includes('auth') && userRole === 'reader'" class="nav-item px-3">
+      <li
+        *ngIf="!router.url.includes('auth') && userRole === 'reader'"
+        class="nav-item px-3"
+      >
         <a routerLink="stories" routerLinkActive="active" class="nav-link"
           >Stories</a
         >
       </li>
-      <li *ngIf="!router.url.includes('auth') && userRole === 'reader'" class="nav-item px-3">
+      <li
+        *ngIf="!router.url.includes('auth') && userRole === 'reader'"
+        class="nav-item px-3"
+      >
         <a routerLink="contact" routerLinkActive="active" class="nav-link"
           >Contact</a
         >
       </li>
-      <li *ngIf="!router.url.includes('auth') && userRole === 'reader'" class="nav-item px-3">
+      <li
+        *ngIf="!router.url.includes('auth') && userRole === 'reader'"
+        class="nav-item px-3"
+      >
         <a routerLink="story/create" routerLinkActive="active" class="nav-link"
           >Write</a
         >
@@ -69,20 +88,26 @@
     </ul>
     <ul class="navbar-nav ms-auto justify-content-end">
       <li class="nav-item px-3" *ngIf="!this.isAuthorized">
-        <a routerLink="auth/login" routerLinkActive="active" class="nav-link"
+        <a
+          routerLink="auth/login"
+          routerLinkActive="active"
+          class="nav-link nav-link-auth"
           >Login</a
         >
       </li>
       <li class="nav-item px-3" *ngIf="!this.isAuthorized">
-        <a routerLink="auth/register" routerLinkActive="active" class="nav-link"
+        <a
+          routerLink="auth/register"
+          routerLinkActive="active"
+          class="nav-link nav-link-auth"
           >Register</a
         >
       </li>
       <li class="nav-item px-3" *ngIf="this.isAuthorized">
-        <a routerLink="/profile" class="nav-link">Profile</a>
+        <a routerLink="/profile" class="nav-link nav-link-auth">Profile</a>
       </li>
       <li class="nav-item px-3" *ngIf="this.isAuthorized">
-        <a (click)="logout()" class="nav-link">Logout</a>
+        <a (click)="logout()" class="nav-link nav-link-auth">Logout</a>
       </li>
     </ul>
   </div>

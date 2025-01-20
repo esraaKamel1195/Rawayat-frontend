@@ -97,7 +97,6 @@ export class LoginComponent {
   }
 
   login() {
-    console.log('this.loginForm.value', this.loginForm.value);
     if (this.loginForm.invalid) {
       this.errorMessage.set('Form data not vaild');
       this.loginForm.markAllAsTouched();
@@ -109,10 +108,8 @@ export class LoginComponent {
         localStorage.setItem('token', JSON.stringify(response.token));
         localStorage.setItem('user', JSON.stringify(response.user));
         if (response.user.role === 'admin') {
-          console.log('if condition admin');
           this.router.navigateByUrl('/admin/categories');
         } else if (response.user.role === 'reader') {
-          console.log('if condition reader');
           this.router.navigateByUrl('/home');
         }
       },

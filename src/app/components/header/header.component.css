@@ -1,6 +1,17 @@
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  color: #f87f27 !important;
+}
+
 .logo {
-  width: 100px;
+  width: 60px;
   height: auto;
+}
+
+.title-logo {
+  padding-top: 7px;
+  padding-inline-start: 5px;
 }
 
 .active {
@@ -15,4 +26,8 @@
 
 ul {
   width: 600px;
+}
+
+.nav-link-auth {
+  color: #4d8cdb;
 }

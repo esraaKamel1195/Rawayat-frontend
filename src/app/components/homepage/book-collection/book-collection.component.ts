@@ -29,8 +29,7 @@ export class BookCollectionComponent implements OnInit {
   constructor(
     private router: Router,
     private storiesServices: StoryService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     if(this.currentPage === `stories/latest-stories`) {
@@ -79,9 +78,5 @@ export class BookCollectionComponent implements OnInit {
 
   showDetails(storyId: number | string) {
     this.router.navigateByUrl(`story/${storyId}/details`);
-  }
-
-  loadMore() {
-    this.router.navigateByUrl(`story/`);
   }
 }

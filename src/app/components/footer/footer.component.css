@@ -1,9 +1,10 @@
 .footer {
-  background-color: #262628;
+  background-color: #01326a;
   color: #f9f7f3;
   align-content: center;
   position: relative;
   bottom: 0;
+  padding-block: 15px;
 }
 
 .img-fluid {
@@ -15,6 +16,11 @@
   font-size: 20px;
   font-family: cursive;
   letter-spacing: 1px;
+}
+
+.footer-title {
+  color: #4fc4f7;
+  font-size: 1.5rem;
 }
 
 ul li {

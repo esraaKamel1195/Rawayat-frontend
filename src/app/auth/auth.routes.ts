@@ -31,7 +31,7 @@ export const authRoutes: Routes = [
   {
     path: 'verify',
     canActivate: [AuthGuard],
-    data: { role: 'reader' },
+    data: { role: ['reader', 'admin'] },
     loadComponent: () =>
       import('./verify-email/verify-email.component').then(
         (mod) => mod.VerifyEmailComponent
