@@ -1,9 +1,9 @@
 .banner {
-    background: linear-gradient(to bottom, #ded9c4, #e2bf9a);
+  background: linear-gradient(to bottom, #ded9c4, #e2bf9a);
 }
 
 .container {
-   max-width: 100%;
+  max-width: 100%;
 }
 
 .container h1 b {

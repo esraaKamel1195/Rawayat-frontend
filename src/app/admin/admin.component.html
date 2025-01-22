@@ -9,15 +9,15 @@
       >
       <mat-list-item
         role="listitem"
-        routerLink="categories"
-        routerLinkActive="router-link-active"
-        >Categories</mat-list-item
-      >
-      <mat-list-item
-        role="listitem"
         routerLink="stories"
         routerLinkActive="router-link-active"
         >Stories</mat-list-item
+      >
+      <mat-list-item
+        role="listitem"
+        routerLink="categories"
+        routerLinkActive="router-link-active"
+        >Categories</mat-list-item
       >
       <mat-list-item
         role="listitem"
@@ -31,9 +31,9 @@
         routerLinkActive="router-link-active"
         >Reading later</mat-list-item
       >
-      <mat-list-item
+      <!-- <mat-list-item
         role="listitem"
-        routerLink="tags"
+        routerLink="tags/"
         routerLinkActive="router-link-active"
         >Tags</mat-list-item
       >
@@ -48,7 +48,7 @@
         routerLink="reviews"
         routerLinkActive="router-link-active"
         >Reviews</mat-list-item
-      >
+      > -->
       <mat-list-item
         role="listitem"
         routerLink="contacts"
@@ -58,7 +58,25 @@
     </mat-list>
   </mat-drawer>
   <mat-drawer-content>
-    <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button>
+    <button type="button" mat-raised-button (click)="drawer.toggle()">
+      <p class="sr-only">toggle</p>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        width="24"
+        height="24"
+        stroke-width="2"
+      >
+        <path d="M21 17l-18 0"></path>
+        <path d="M6 10l-3 -3l3 -3"></path>
+        <path d="M3 7l18 0"></path>
+        <path d="M18 20l3 -3l-3 -3"></path>
+      </svg>
+    </button>
     <router-outlet />
   </mat-drawer-content>
 </mat-drawer-container>

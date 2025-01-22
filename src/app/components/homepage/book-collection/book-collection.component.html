@@ -4,7 +4,8 @@
       <h3 class="title">{{ title }}</h3>
     </div>
     <div>
-      <a routerLink="stories/{{ routingItem }}">Show All</a>
+      <a *ngIf="!categoryId" routerLink="stories/{{ routingItem }}">Show All</a>
+      <a *ngIf="categoryId" routerLink="stories-by-category/{{categoryId}}">Show All</a>
     </div>
   </div>
 

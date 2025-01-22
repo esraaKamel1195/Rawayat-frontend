@@ -25,6 +25,7 @@ export class BookCollectionComponent implements OnInit {
   @Input({ required: true }) title: string = '';
   @Input({ required: true }) currentPage: string = '';
   @Input({ required: true }) routingItem: string = '';
+  @Input({ required: false }) categoryId: number | string | undefined = undefined;
 
   constructor(
     private router: Router,
@@ -49,12 +50,26 @@ export class BookCollectionComponent implements OnInit {
         next: (res) => {
           console.log('getTopStoriesByViews', res);
           this.stories = res;
+          this.loadInit();
         },
         error: (error) => {
           console.log(error);
         },
       });
-    } else {
+    } else if (this.currentPage === `details` && this.categoryId) {
+      console.log('cat id', this.categoryId);
+      this.storiesServices.getStoriesByCategory(this.categoryId).subscribe({
+        next: (stories: Story[]) => {
+          console.log('by category', stories);
+          this.stories = stories;
+          this.loadInit();
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    }
+    else {
       this.storiesServices.getAdvertisementStoryByLatestStory().subscribe({
         next: (res) => {
           console.log('latest', res);

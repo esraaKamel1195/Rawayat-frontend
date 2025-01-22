@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { AuthGuard } from './services/auth/auth.guard';
-// import { AuthGuard } from './auth/auth.guard';
 
 export const routes: Routes = [
   {
@@ -78,7 +77,7 @@ export const routes: Routes = [
   },
 
   {
-    path: 'story/:storyId/read',
+    path: 'story/:storyId/:storyName/read',
     canActivate: [AuthGuard],
     data: { role: ['reader', 'admin'] },
     loadComponent: () =>

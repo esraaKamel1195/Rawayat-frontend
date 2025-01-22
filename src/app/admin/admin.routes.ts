@@ -52,26 +52,6 @@ export const adminRoutes: Routes = [
       },
 
       {
-        path: 'chapter/create',
-        canActivate: [AuthGuard],
-        data: { role: ['admin'] },
-        loadComponent: () =>
-          import('./chapter/create-chapter/create-chapter.component').then(
-            (mod) => mod.CreateChapterComponent
-          ),
-      },
-
-      {
-        path: 'chapter/edit',
-        canActivate: [AuthGuard],
-        data: { role: ['admin'] },
-        loadComponent: () =>
-          import('./chapter/create-chapter/create-chapter.component').then(
-            (mod) => mod.CreateChapterComponent
-          ),
-      },
-
-      {
         path: 'stories',
         canActivate: [AuthGuard],
         data: { role: ['admin'] },
@@ -122,7 +102,7 @@ export const adminRoutes: Routes = [
       },
 
       {
-        path: 'reviews',
+        path: 'reviews/:categoryId',
         canActivate: [AuthGuard],
         data: { role: ['admin'] },
         loadComponent: () =>
