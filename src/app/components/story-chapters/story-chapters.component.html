@@ -1,12 +1,15 @@
 <section>
-  <div class="">
-    <div class="row">
-      <div class="col-md-2">
-        <app-chapter></app-chapter>
+  <div class="row">
+    <div class="col-md-2">
+      <div class="container">
+        <h3 class="title">Content</h3>
+        <ul *ngFor="let chapter of chapters">
+          <li>{{ chapter.title }}</li>
+        </ul>
       </div>
-      <div class="col-md-10">
-        <app-story></app-story>
-      </div>
+    </div>
+    <div class="col-md-10">
+      <app-story></app-story>
     </div>
   </div>
 </section>

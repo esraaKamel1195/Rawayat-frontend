@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ChaptersService } from '../../../services/chapters.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { Chapter } from '../../../interfaces/chapter';
+import { ChaptersService } from '../../../services/chapters.service';
 
 @Component({
   selector: 'app-story',
@@ -11,14 +12,33 @@ import { CommonModule } from '@angular/common';
   styleUrl: './story.component.css'
 })
 export class StoryComponent implements OnInit {
+  isOpen = true;
+  storyId: string | number = '';
+  storyName: string = '';
+  chapters: Array<Chapter> = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
+    private chaptersServices: ChaptersService
   ) {}
 
   ngOnInit(): void {
-    
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.storyId = params['storyId'];
+      this.storyName = params['storyName'];
+    });
+
+    this.chaptersServices.chapterIndex(this.storyId).subscribe({
+      next: (chapters: any) => {
+        console.log('story chapters', chapters);
+        this.chapters = chapters.data;
+      }, error: (error) => {
+        console.log(error);
+      }
+    });
   }
 
-
+  toggleSideNav(): void {
+    this.isOpen = !this.isOpen;
+  }
 }

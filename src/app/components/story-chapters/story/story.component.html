@@ -1,14 +1,9 @@
-<h3 class="text-center mt-5">story name</h3>
+<h3 class="text-center mt-5">{{ storyName }}</h3>
 
 <div class="container">
-  <h4 class="pb-3">Cahpter name</h4>
+  <h4 class="pb-3">{{ chapters[0].title }}</h4>
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque tempus,
-    felis vel feugiat varius, nunc nunc semper arcu, vel elementum mauris nunc
-    et velit. Nulla facilisi. Nullam at nunc sit amet turpis congue laoreet.
-    Donec vel neque et velit pharetra mollis. Donec auctor, sapien eu tristique
-    consectetur, felis lectus scelerisque odio, id tristique purus velit vel
-    enim.
+    {{ chapters[0].content }}
   </p>
 </div>
 <div class="text-center">
