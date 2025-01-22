@@ -3,28 +3,28 @@ import {
   CdkPortal,
   CdkPortalOutlet,
   TemplatePortal
-} from "./chunk-ERGET37V.js";
-import {
-  SharedResizeObserver
-} from "./chunk-EFDLCR3G.js";
+} from "./chunk-HNVK5REF.js";
 import {
   CdkScrollable,
   ViewportRuler
-} from "./chunk-YRFOSSTS.js";
-import "./chunk-RXNOUNT2.js";
+} from "./chunk-2Y72SY26.js";
+import "./chunk-TVFHD5YL.js";
+import {
+  SharedResizeObserver
+} from "./chunk-MPRL3QX6.js";
 import {
   animate,
   state,
   style,
   transition,
   trigger
-} from "./chunk-HMBY5CSG.js";
+} from "./chunk-5EZGYMGW.js";
 import {
   Directionality,
   MAT_RIPPLE_GLOBAL_OPTIONS,
   MatCommonModule,
   MatRipple
-} from "./chunk-DMSHC7JY.js";
+} from "./chunk-QHXKU2VI.js";
 import {
   CdkMonitorFocus,
   CdkObserveContent,
@@ -35,10 +35,10 @@ import {
   SPACE,
   hasModifierKey,
   normalizePassiveListenerOptions
-} from "./chunk-WATIMDZY.js";
+} from "./chunk-ZKB5WJWT.js";
 import {
   DOCUMENT
-} from "./chunk-7E3RN2EZ.js";
+} from "./chunk-OIIWII42.js";
 import {
   ANIMATION_MODULE_TYPE,
   Attribute,
@@ -111,17 +111,17 @@ import {
   ɵɵtext,
   ɵɵtextInterpolate,
   ɵɵviewQuery
-} from "./chunk-MTEHKME3.js";
+} from "./chunk-2FSAHAZ4.js";
 import {
   require_cjs
-} from "./chunk-X5NLSII4.js";
+} from "./chunk-5IW5ZEPE.js";
 import {
   require_operators
-} from "./chunk-IGNQQJCH.js";
-import "./chunk-DCYMPORG.js";
+} from "./chunk-UOPINYA3.js";
+import "./chunk-RPWZ4CMX.js";
 import {
   __toESM
-} from "./chunk-LDODSSGN.js";
+} from "./chunk-NQ4HTGF6.js";
 
 // node_modules/@angular/material/fesm2022/tabs.mjs
 var import_rxjs = __toESM(require_cjs(), 1);
