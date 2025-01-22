@@ -24,8 +24,15 @@
           <td>
             <button
               class="btn btn-danger"
-              (click)="deleteMessage(contact.id)"
               *ngIf="contact.id"
+              (click)="viewMessage(contact.id)"
+            >
+              View
+            </button>
+            <button
+              class="btn btn-danger"
+              *ngIf="contact.id"
+              (click)="deleteMessage(contact.id)"
             >
               Delete
             </button>

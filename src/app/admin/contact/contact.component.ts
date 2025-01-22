@@ -9,7 +9,12 @@ import { Contact } from '../../interfaces/contact';
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [ RouterModule, CommonModule, MatPaginatorModule, MatTableModule ],
+  imports: [
+    RouterModule,
+    CommonModule,
+    MatPaginatorModule,
+    MatTableModule
+  ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.css',
 })
@@ -31,6 +36,10 @@ export class ContactComponent implements OnInit {
         console.error('Error retrieving contacts:', error);
       },
     });
+  }
+
+  viewMessage(id: number) {
+
   }
 
   deleteMessage(id: number) {
