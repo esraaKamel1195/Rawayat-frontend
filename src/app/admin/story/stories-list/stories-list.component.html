@@ -60,15 +60,18 @@
       <tbody>
         <tr *ngFor="let story of stories">
           <td>{{ story.title }}</td>
-          <td>{{ story.category }}</td>
+          <td>{{ story.category?.category_name }}</td>
           <td>{{ story.status }}</td>
           <td>{{ story.content_type }}</td>
 
           <td>
-            <button class="btn bg-warning mx-3" (click)="edit(story.id)">
+            <button class="btn bg-warning mx-1" (click)="viewStory(story.id)">
+              View
+            </button>
+            <button class="btn bg-warning mx-1" (click)="editView(story.id)">
               Edit
             </button>
-            <button class="btn bg-danger" (click)="deleteStory(story.id)">
+            <button class="btn bg-danger mx-1" (click)="deleteStory(story.id)">
               Delete
             </button>
           </td>

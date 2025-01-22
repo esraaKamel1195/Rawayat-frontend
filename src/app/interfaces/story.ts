@@ -4,9 +4,9 @@ import { Tag } from './tag';
 
 export interface Story {
   id: number;
+  title: string;
   publication_status?: string;
   status?: string;
-  title?: string;
   description?: string;
   language?: string;
   copyright?: string;

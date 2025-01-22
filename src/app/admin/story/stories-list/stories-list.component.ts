@@ -41,15 +41,15 @@ export class StoriesListComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator? this.paginator: null;
   }
 
-  edit(id: number = 0) {
+  editView(id: number = 0) {
     console.log('Editing category with ID:', id);
     this.router.navigate([`category/update/${id}`]);
   }
 
-  viewStory() {
-
+  viewStory(id: number = 0) {
+    this.router.navigate([`story/${id}/details`]);
   }
-  
+
   deleteStory(id: number = 0) {
     if (confirm('Are you sure you want to delete this story?')) {
       this.storyService.deleteStory(id).subscribe({

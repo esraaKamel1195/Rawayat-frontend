@@ -7,6 +7,14 @@ img.story-img {
   margin-top: 10px;
 }
 
+.header-title {
+  color: #4d8ce2;
+}
+
+h3.title {
+  color: #fc7b1d;
+}
+
 .now {
   background-color: #f87f27;
   color: #fff;
@@ -20,16 +28,16 @@ img.story-img {
 }
 
 .later {
-  background-color: #ded9c4;
-  color: #282827;
   font-size: 18px;
   font-weight: 500;
-}
-
-.later:hover {
   background-color: #fff;
   color: #b15443;
   border-color: #b15443;
+}
+
+.later:hover {
+  background-color: #b15443;
+  color: #ffffff;
 }
 
 ul {
