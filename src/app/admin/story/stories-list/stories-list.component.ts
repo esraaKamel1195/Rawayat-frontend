@@ -21,8 +21,8 @@ export class StoriesListComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator?: MatPaginator;
 
   constructor(
-    private router: Router,
-    private storyService: StoryService
+    private readonly router: Router,
+    private readonly storyService: StoryService
   ) {}
 
   ngOnInit(): void {

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -36,10 +36,10 @@ export class ResetPasswordComponent implements OnInit {
   hideConfirmPassword: boolean = true;
 
   constructor(
-    private fb: FormBuilder,
-    public router: Router,
-    private authService: AuthService,
-    private activateRoute: ActivatedRoute
+    private readonly fb: FormBuilder,
+    public readonly router: Router,
+    private readonly authService: AuthService,
+    private readonly activateRoute: ActivatedRoute
   ) {
     this.passwordForm = this.fb.group(
       {

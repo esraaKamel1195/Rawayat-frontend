@@ -26,7 +26,10 @@ export class UsersComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator) paginator?: MatPaginator;
 
-  constructor(private router: Router, private usersService: UsersService) {}
+  constructor(
+    private readonly router: Router,
+    private readonly usersService: UsersService
+  ) {}
 
   ngOnInit(): void {
     this.usersService.getUsers().subscribe({

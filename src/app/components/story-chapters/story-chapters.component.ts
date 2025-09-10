@@ -21,8 +21,8 @@ export class StoryChaptersComponent implements OnInit {
   storyId: string | number = '';
 
   constructor(
-    private activatedRoute: ActivatedRoute,
-    private chaptersServices: ChaptersService
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly chaptersServices: ChaptersService
   ) {}
 
   ngOnInit(): void {

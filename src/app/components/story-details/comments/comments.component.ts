@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { ReviewsService } from '../../../services/reviews.service';
 import { Review } from '../../../interfaces/review';
 import { ActivatedRoute, Params } from '@angular/router';
-import { error } from 'console';
 
 @Component({
   selector: 'app-comments',
@@ -17,8 +16,8 @@ export class CommentsComponent implements OnInit {
   storyId: string | number = '';
 
   constructor(
-    private reviewsServices: ReviewsService,
-    private activatedRoute: ActivatedRoute
+    private readonly reviewsServices: ReviewsService,
+    private readonly activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {

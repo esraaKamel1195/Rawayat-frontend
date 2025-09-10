@@ -21,7 +21,7 @@ export class HomepageComponent implements OnInit {
   isAuthenticated: boolean = false;
 
   constructor(
-    private authService: AuthService
+    private readonly authService: AuthService
   ) {}
 
   ngOnInit(): void {

@@ -1,11 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
-import { ChangeDetectionStrategy, signal } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
-  FormControl,
   FormsModule,
   ReactiveFormsModule,
   FormBuilder,
@@ -15,12 +11,10 @@ import {
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { merge } from 'rxjs';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { AuthService } from '../../services/auth/auth.service';
-// import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
 
 @Component({
   selector: 'app-login',
@@ -50,14 +44,12 @@ export class LoginComponent {
 
   // authentication
   loginForm: FormGroup;
-  // credentials = { email: '', password: '' };
 
   constructor(
-    private fb: FormBuilder,
-    private authService: AuthService,
-    private router: Router,
-    private deviceService: DeviceDetectorService
-  ) {
+    private readonly fb: FormBuilder,
+    private readonly authService: AuthService,
+    private readonly router: Router,
+    private readonly deviceService: DeviceDetectorService) {
     this.loginForm = this.fb.group({
       email: [
         '',

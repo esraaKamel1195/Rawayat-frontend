@@ -8,9 +8,9 @@ import { Contact } from '../interfaces/contact';
 })
 export class ContactService {
 
-  private apiURL = 'https://whitesmoke-coyote-648419.hostingersite.com/api';
+  private readonly apiURL = 'https://whitesmoke-coyote-648419.hostingersite.com/api';
 
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   //add contact
   addContact(contact: Contact): Observable<Contact> {

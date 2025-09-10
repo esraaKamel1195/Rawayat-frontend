@@ -16,18 +16,14 @@ import {
   MatFormFieldModule,
 } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { map } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
 import {
   ChangeDetectionStrategy,
   Component,
-  inject,
   signal,
 } from '@angular/core';
-import {} from '@angular/forms';
 import { MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
-import { COMMA, ENTER } from '@angular/cdk/keycodes';
 
 @Component({
   selector: 'app-create-story',
@@ -35,6 +31,7 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
   imports: [
     RouterLink,
     RouterModule,
+    ReactiveFormsModule,
     MatSelectModule,
     MatFormFieldModule,
     MatInputModule,
@@ -55,7 +52,10 @@ export class CreateStoryComponent {
 
   // announcer = inject(LiveAnnouncer);
 
-  constructor(private fb: FormBuilder, private announcer: LiveAnnouncer) {
+  constructor(
+    private readonly fb: FormBuilder,
+    private readonly announcer: LiveAnnouncer
+  ) {
     this.form = this.fb.group({
       description: ['', Validators.required],
       language: ['', Validators.required],

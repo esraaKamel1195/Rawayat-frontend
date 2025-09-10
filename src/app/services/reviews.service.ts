@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ReviewsService {
-  constructor(private sharedHttp: SharedHTTPService) {}
+  constructor(private readonly sharedHttp: SharedHTTPService) {}
 
   // toggle Vote
   toggleVote(storyId: number | string, has_voted: string): Observable<any> {

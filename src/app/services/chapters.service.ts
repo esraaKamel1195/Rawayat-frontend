@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ChaptersService {
-  constructor(private sharedHttpServices: SharedHTTPService) {}
+  constructor(private readonly sharedHttpServices: SharedHTTPService) {}
 
   // chapter_index
   chapterIndex(story: number | string): Observable<any> {

@@ -28,8 +28,8 @@ export class BookCollectionComponent implements OnInit {
   @Input({ required: false }) categoryId: number | string | undefined = undefined;
 
   constructor(
-    private router: Router,
-    private storiesServices: StoryService
+    private readonly router: Router,
+    private readonly storiesServices: StoryService
   ) {}
 
   ngOnInit(): void {

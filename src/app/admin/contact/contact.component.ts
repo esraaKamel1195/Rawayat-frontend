@@ -25,7 +25,7 @@ export class ContactComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator?: MatPaginator;
 
-  constructor(private contactService: ContactService) {}
+  constructor(private readonly contactService: ContactService) {}
 
   ngOnInit(): void {
     this.contactService.getContacts().subscribe({

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal, OnInit } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
@@ -10,7 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
@@ -29,14 +29,13 @@ import { AuthService } from '../../services/auth/auth.service';
   templateUrl: './forgot-password.component.html',
   styleUrl: './forgot-password.component.css',
 })
-export class ForgotPasswordComponent implements OnInit {
+export class ForgotPasswordComponent {
   forgetPasswordForm: FormGroup;
   errorMessage = signal('');
 
   constructor(
-    private fb: FormBuilder,
-    private authService: AuthService,
-    private router: Router
+    private readonly fb: FormBuilder,
+    private readonly authService: AuthService
   ) {
     this.forgetPasswordForm = this.fb.group({
       email: [
@@ -51,8 +50,6 @@ export class ForgotPasswordComponent implements OnInit {
       ],
     });
   }
-
-  ngOnInit(): void {}
 
   updateErrorMessage(): void {
     if (this.forgetPasswordForm.get('email')?.hasError('required')) {

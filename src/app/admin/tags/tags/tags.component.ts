@@ -26,9 +26,9 @@ export class TagsComponent implements OnInit, AfterViewInit {
     @ViewChild(MatPaginator) paginator?: MatPaginator;
 
     constructor(
-      private activatedRoute: ActivatedRoute,
-      private router: Router,
-      private categoryService: CategoryService
+      private readonly activatedRoute: ActivatedRoute,
+      private readonly router: Router,
+      private readonly categoryService: CategoryService
     ) {}
 
     ngOnInit(): void {

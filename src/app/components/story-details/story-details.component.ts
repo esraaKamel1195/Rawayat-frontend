@@ -33,9 +33,9 @@ export class StoryDetailsComponent implements OnInit {
   storyDetails: Story = { id: 0, title: '' };
 
   constructor(
-    private ActivatedRouter: ActivatedRoute,
-    private router: Router,
-    private storyService: StoryService
+    private readonly ActivatedRouter: ActivatedRoute,
+    private readonly router: Router,
+    private readonly storyService: StoryService
   ) {}
 
   ngOnInit(): void {

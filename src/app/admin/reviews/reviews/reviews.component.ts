@@ -27,7 +27,10 @@ export class ReviewsComponent implements OnInit, AfterViewInit {
 
     @ViewChild(MatPaginator) paginator?: MatPaginator;
 
-    constructor(private router: Router, private reviewsService: ReviewsService) {}
+    constructor(
+      private readonly router: Router,
+      private readonly reviewsService: ReviewsService
+    ) {}
 
     ngOnInit(): void {
       this.reviewsService.getAllReviews(5).subscribe({

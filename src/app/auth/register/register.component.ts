@@ -1,11 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, ViewChild, signal } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatStepper, MatStepperModule } from '@angular/material/stepper';
 import { Router, RouterModule } from '@angular/router';
-import { ChangeDetectionStrategy, signal } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -47,12 +45,12 @@ export class RegisterComponent {
   @ViewChild('stepper', { static: false }) stepper?: MatStepper;
 
   constructor(
-    private _formBuilder: FormBuilder,
-    private categoryService: CategoryService,
-    private authService: AuthService,
-    private router: Router,
-    private categoriesService: CategoryService,
-    private deviceService: DeviceDetectorService
+    private readonly _formBuilder: FormBuilder,
+    private readonly categoryService: CategoryService,
+    private readonly authService: AuthService,
+    private readonly router: Router,
+    private readonly categoriesService: CategoryService,
+    private readonly deviceService: DeviceDetectorService
   ) {
     this.registrationForm = this._formBuilder.group(
       {

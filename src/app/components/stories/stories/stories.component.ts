@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Params, RouterModule } from '@angular/router';
+import { ActivatedRoute, Params, RouterModule, Router } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { Router } from '@angular/router';
 import { StoryService } from '../../../services/story.service';
 import { Story } from '../../../interfaces/story';
 import { CategoryCarouselComponent } from '../../homepage/category-carousel/category-carousel.component';
@@ -27,9 +26,9 @@ export class StoriesComponent implements OnInit {
   categoryId: string | number = 0;
 
   constructor(
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private storyService: StoryService
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly router: Router,
+    private readonly storyService: StoryService
   ) {}
 
   ngOnInit(): void {
@@ -74,7 +73,7 @@ export class StoriesComponent implements OnInit {
 
   categoryChange(event: number | null = null) {
     console.log('event', event);
-    this.storyService.getStoriesByCategory(event? event : this.categoryId).subscribe({
+    this.storyService.getStoriesByCategory(this.categoryId).subscribe({
       next: (stories: Story[]) => {
         console.log('by category', stories);
         this.stories = stories;

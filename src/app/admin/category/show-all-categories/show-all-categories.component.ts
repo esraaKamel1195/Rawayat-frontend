@@ -1,6 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -22,8 +21,8 @@ export class ShowAllCategoriesComponent implements OnInit {
   @ViewChild(MatPaginator) paginator?: MatPaginator;
 
   constructor(
-    private router: Router,
-    private categoryService: CategoryService
+    private readonly router: Router,
+    private readonly categoryService: CategoryService
   ) {}
 
   ngOnInit(): void {

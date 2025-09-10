@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, pipe } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Story } from '../interfaces/story';
 import { SharedHTTPService } from './shared-http.service';
 @Injectable({
@@ -9,11 +9,11 @@ import { SharedHTTPService } from './shared-http.service';
 export class StoryService {
   // Fetch stories from API
   // private apiURL = 'http://127.0.0.1:8000/api/stories';
-  private apiURL = 'https://whitesmoke-coyote-648419.hostingersite.com/api';
+  private readonly apiURL = 'https://whitesmoke-coyote-648419.hostingersite.com/api';
 
   constructor(
-    private http: HttpClient,
-    private sharedHttpService: SharedHTTPService
+    private readonly http: HttpClient,
+    private readonly sharedHttpService: SharedHTTPService
   ) {}
 
   // get all stories

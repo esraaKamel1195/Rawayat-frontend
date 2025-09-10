@@ -7,10 +7,10 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private isLoggedIn$ = new BehaviorSubject<boolean>(false);
-  private apiUrl = 'https://whitesmoke-coyote-648419.hostingersite.com/api';
+  private readonly isLoggedIn$ = new BehaviorSubject<boolean>(false);
+  private readonly apiUrl = 'https://whitesmoke-coyote-648419.hostingersite.com/api';
 
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   // Check if localStorage is available
   private isLocalStorageAvailable(): boolean {

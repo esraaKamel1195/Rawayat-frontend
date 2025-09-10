@@ -18,8 +18,8 @@ export class StoryComponent implements OnInit {
   chapters: Array<Chapter> = [];
 
   constructor(
-    private activatedRoute: ActivatedRoute,
-    private chaptersServices: ChaptersService
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly chaptersServices: ChaptersService
   ) {}
 
   ngOnInit(): void {

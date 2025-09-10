@@ -17,8 +17,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     public router: Router,
-    private categoryService: CategoryService,
-    private authService: AuthService
+    private readonly categoryService: CategoryService,
+    private readonly authService: AuthService
   ) {
     this.categoryService.getAllCategories().subscribe((data: any) => {
       this.categories = data;

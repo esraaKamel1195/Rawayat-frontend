@@ -33,9 +33,9 @@ export class CreateCategoryComponent implements OnInit {
   category: Category = { cat_id: 0, category_name: '' };
 
   constructor(
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private categoryService: CategoryService
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly router: Router,
+    private readonly categoryService: CategoryService
   ) {}
 
   ngOnInit(): void {

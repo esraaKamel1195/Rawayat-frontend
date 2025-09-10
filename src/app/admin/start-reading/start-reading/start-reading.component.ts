@@ -1,10 +1,10 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { StoryService } from '../../../services/story.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { StoryService } from '../../../services/story.service';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { Story } from '../../../interfaces/story';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-start-reading',
@@ -21,8 +21,8 @@ export class StartReadingComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator?: MatPaginator;
 
   constructor(
-    private router: Router,
-    private storyService: StoryService
+    private readonly router: Router,
+    private readonly storyService: StoryService
   ) {}
 
   ngOnInit(): void {

@@ -49,7 +49,7 @@ export class ContactUsComponent {
     Validators.minLength(10),
   ]);
 
-  constructor(private contactService: ContactService) {
+  constructor(private readonly contactService: ContactService) {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateErrorMessage());

@@ -21,9 +21,9 @@ export class CategoryCarouselComponent implements OnInit {
   @Output() onTagChange: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(
-    private route: Router,
-    private activatedRoute: ActivatedRoute,
-    private categoryService: CategoryService,
+    private readonly route: Router,
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly categoryService: CategoryService,
   ) {}
 
   ngOnInit(): void {

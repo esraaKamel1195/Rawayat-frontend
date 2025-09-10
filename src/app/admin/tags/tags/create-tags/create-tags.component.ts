@@ -27,12 +27,12 @@ import { CategoryService } from '../../../../services/category.service';
 })
 export class CreateTagsComponent implements OnInit {
   tagForm: FormGroup = new FormGroup({}); //form data and validation
-  tag: Tag = { id: '', name: '' };
+  tag: Tag = { id: 0, name: '' };
 
   constructor(
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private categoryService: CategoryService
+    private readonly activatedRoute: ActivatedRoute,
+    private readonly router: Router,
+    private readonly categoryService: CategoryService
   ) {}
 
   ngOnInit(): void {

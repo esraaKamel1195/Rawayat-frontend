@@ -1,61 +1,70 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side" opened>
-    <mat-list role="list">
-      <mat-list-item
-        role="listitem"
-        routerLink="users"
-        routerLinkActive="router-link-active"
-        >Users</mat-list-item
-      >
-      <mat-list-item
-        role="listitem"
-        routerLink="stories"
-        routerLinkActive="router-link-active"
-        >Stories</mat-list-item
-      >
-      <mat-list-item
-        role="listitem"
-        routerLink="categories"
-        routerLinkActive="router-link-active"
-        >Categories</mat-list-item
-      >
-      <mat-list-item
-        role="listitem"
-        routerLink="start-reading"
-        routerLinkActive="router-link-active"
-        >Start Reading</mat-list-item
-      >
-      <mat-list-item
-        role="listitem"
-        routerLink="reading-later"
-        routerLinkActive="router-link-active"
-        >Reading later</mat-list-item
-      >
-      <!-- <mat-list-item
-        role="listitem"
-        routerLink="tags/"
-        routerLinkActive="router-link-active"
-        >Tags</mat-list-item
-      >
-      <mat-list-item
-        role="listitem"
-        routerLink="comments"
-        routerLinkActive="router-link-active"
-        >Comments</mat-list-item
-      >
-      <mat-list-item
-        role="listitem"
-        routerLink="reviews"
-        routerLinkActive="router-link-active"
-        >Reviews</mat-list-item
-      > -->
-      <mat-list-item
-        role="listitem"
-        routerLink="contacts"
-        routerLinkActive="router-link-active"
-        >Contacts</mat-list-item
-      >
-    </mat-list>
+    <ul>
+      <li>
+        <mat-list-item
+          routerLink="users"
+          routerLinkActive="router-link-active"
+          >Users</mat-list-item
+        >
+      </li>
+      <li>
+        <mat-list-item
+          routerLink="stories"
+          routerLinkActive="router-link-active"
+          >Stories</mat-list-item
+        >
+      </li>
+      <li>
+        <mat-list-item
+          routerLink="categories"
+          routerLinkActive="router-link-active"
+          >Categories</mat-list-item
+        >
+      </li>
+      <li>
+        <mat-list-item
+          routerLink="start-reading"
+          routerLinkActive="router-link-active"
+          >Start Reading</mat-list-item
+        >
+      </li>
+      <li>
+        <mat-list-item
+          routerLink="reading-later"
+          routerLinkActive="router-link-active"
+          >Reading later</mat-list-item
+        >
+      </li>
+      <!-- <li>
+        <mat-list-item
+          routerLink="tags/"
+          routerLinkActive="router-link-active"
+          >Tags</mat-list-item
+        >
+      </li>
+      <li>
+        <mat-list-item
+          routerLink="comments"
+          routerLinkActive="router-link-active"
+          >Comments</mat-list-item
+        >
+      </li>
+      <li>
+        <mat-list-item
+          routerLink="reviews"
+          routerLinkActive="router-link-active"
+          >Reviews</mat-list-item
+        >
+      </li> -->
+      <li>
+        <mat-list-item
+          routerLink="contacts"
+          routerLinkActive="router-link-active"
+          >Contacts</mat-list-item
+        >
+      </li>
+    </ul>
   </mat-drawer>
   <mat-drawer-content>
     <button type="button" mat-raised-button (click)="drawer.toggle()">
