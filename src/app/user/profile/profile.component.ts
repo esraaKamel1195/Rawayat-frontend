@@ -31,7 +31,7 @@ export class ProfileComponent implements OnInit {
     phone: '',
   };
 
-  constructor(private usersServices: UsersService) {}
+  constructor(private readonly usersServices: UsersService) {}
 
   ngOnInit(): void {
     this.usersServices.getCurrentUser().subscribe({
