@@ -16,28 +16,18 @@
                 maxlength="10"
                 required
               />
-              <mat-error
-                class="mb-2"
-                *ngIf="
-                  registrationForm.get('username')?.touched &&
-                  registrationForm.get('username')?.hasError('required')
-                "
-              >
-                Username is required
-              </mat-error>
-              <mat-error
-                class="mb-2"
-                *ngIf="registrationForm.get('username')?.hasError('maxlength')"
-              >
+              @if( registrationForm.get('username')?.touched &&
+              registrationForm.get('username')?.hasError('required') ) {
+              <mat-error class="mb-2"> Username is required </mat-error>
+              } @if(registrationForm.get('username')?.hasError('maxlength')) {
+              <mat-error class="mb-2">
                 Maximum length is 10 characters
               </mat-error>
-              <mat-error
-                id="usernameError"
-                class="mb-2"
-                *ngIf="registrationForm.get('username')?.hasError('notCorrect')"
-              >
+              } @if(registrationForm.get('username')?.hasError('notCorrect')) {
+              <mat-error id="usernameError" class="mb-2">
                 {{ registrationForm.get("username")?.getError("notCorrect") }}
               </mat-error>
+              }
             </mat-form-field>
           </div>
           <!-- Email -->
@@ -110,7 +100,8 @@
                 class="mb-2"
                 *ngIf="
                   registrationForm.get('password')?.touched &&
-                  registrationForm.get('password')?.hasError('minlength')"
+                  registrationForm.get('password')?.hasError('minlength')
+                "
                 class="pb-1"
               >
                 Password must be at least 8 characters
@@ -276,28 +267,25 @@
       <form [formGroup]="secondFormGroup" (ngSubmit)="storeCategory()">
         <fieldset class="color-black">
           <legend>Choose Your Interests</legend>
-          <div
-            *ngIf="secondFormGroup.controls['categories'].errors?.['maxSelected']"
-            class="error"
-          >
-            You can select up to 3 categories only.
-          </div>
+          @if(secondFormGroup.controls['categories'].errors?.['maxSelected']) {
+          <div class="error">You can select up to 3 categories only.</div>
+          }
 
           <div class="categories-container">
-            <div
-              *ngFor="let category of categories; let i = index"
-              class="category-item"
-            >
+            @for(category of categories; track $index; let i = $index) {
+            <div class="category-item">
               <input
                 type="checkbox"
                 class="chip bounce"
                 role="switch"
+                aria-checked="false"
                 [value]="category.category_name"
                 (change)="onCategChange($event, category)"
                 placeholder="category name"
                 style="--color: #fa3"
               />
             </div>
+            }
           </div>
         </fieldset>
 
@@ -313,9 +301,7 @@
             </button>
           </div>
           <div>
-            <button mat-button type="submit" class="btn-dark">
-              Store
-            </button>
+            <button mat-button type="submit" class="btn-dark">Store</button>
           </div>
         </div>
       </form>
@@ -327,9 +313,11 @@
       <p class="text-center p-5">
         <img src="images/thanks.png" alt="thanks" />
       </p>
-      <div class="error my-3 py-3" *ngIf="errorMessage()">
+      @if(errorMessage()) {
+      <div class="error my-3 py-3">
         <mat-error>{{ errorMessage() }}</mat-error>
       </div>
+      }
       <div class="text-center">
         <button mat-button type="button" class="btn" routerLink="/">
           Redirect to home

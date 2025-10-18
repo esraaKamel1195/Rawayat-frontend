@@ -14,7 +14,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let contact of contacts">
+        @for ( contact of contacts; track $index) {
+        <tr>
           <td>{{ contact.name }}</td>
           <td>{{ contact.email }}</td>
           <td>{{ contact.phone }}</td>
@@ -22,22 +23,18 @@
             {{ contact.message }}
           </td>
           <td>
-            <button
-              class="btn btn-danger"
-              *ngIf="contact.id"
-              (click)="viewMessage(contact.id)"
-            >
+            @if (contact.id) {
+            <button class="btn btn-danger" (click)="viewMessage(contact.id)">
               View
             </button>
-            <button
-              class="btn btn-danger"
-              *ngIf="contact.id"
-              (click)="deleteMessage(contact.id)"
-            >
+            } @if (contact.id) {
+            <button class="btn btn-danger" (click)="deleteMessage(contact.id)">
               Delete
             </button>
+            }
           </td>
         </tr>
+        }
       </tbody>
     </table>
   </div>

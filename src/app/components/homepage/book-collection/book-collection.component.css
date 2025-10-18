@@ -11,12 +11,9 @@ h3.title {
   color: #ffffff;
 }
 
-.card {
-  width: 200px;
-}
-
 .book-card {
   cursor: pointer;
+  width: 190px;
 }
 
 .book-card img {
@@ -30,7 +27,7 @@ h3.title {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  justify-content: center;
+  justify-content: start;
   padding: 16px;
   min-width: 100%;
 }

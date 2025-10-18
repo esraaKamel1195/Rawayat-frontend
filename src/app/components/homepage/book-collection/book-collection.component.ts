@@ -9,23 +9,19 @@ import { Story } from '../../../interfaces/story';
 @Component({
   selector: 'app-book-collection',
   standalone: true,
-  imports: [
-    RouterModule,
-    CommonModule,
-    MatCardModule,
-    MatButtonModule
-  ],
+  imports: [RouterModule, CommonModule, MatCardModule, MatButtonModule],
   templateUrl: './book-collection.component.html',
   styleUrl: './book-collection.component.css',
 })
 export class BookCollectionComponent implements OnInit {
-  visibleStories: Story [] = [];
-  booksPerPage: number [] = [];
+  visibleStories: Story[] = [];
+  booksPerPage: number[] = [];
   stories: Array<Story> = [];
   @Input({ required: true }) title: string = '';
   @Input({ required: true }) currentPage: string = '';
   @Input({ required: true }) routingItem: string = '';
-  @Input({ required: false }) categoryId: number | string | undefined = undefined;
+  @Input({ required: false }) categoryId: number | string | undefined =
+    undefined;
 
   constructor(
     private readonly router: Router,
@@ -33,19 +29,18 @@ export class BookCollectionComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    if(this.currentPage === `stories/latest-stories`) {
+    if (this.currentPage === `stories/latest-stories`) {
       this.storiesServices.getAdvertisementStoryByLatestStory().subscribe({
         next: (res) => {
           console.log('latest', res);
           this.stories = res;
           this.loadInit();
-        }, error: (error) => {
+        },
+        error: (error) => {
           console.log(error);
-        }
+        },
       });
-    }
-
-    else if(this.currentPage === `stories/popular-stories`) {
+    } else if (this.currentPage === `stories/popular-stories`) {
       this.storiesServices.getTopStoriesByViews().subscribe({
         next: (res) => {
           console.log('getTopStoriesByViews', res);
@@ -68,16 +63,16 @@ export class BookCollectionComponent implements OnInit {
           console.log(error);
         },
       });
-    }
-    else {
+    } else {
       this.storiesServices.getAdvertisementStoryByLatestStory().subscribe({
         next: (res) => {
           console.log('latest', res);
           this.stories = res;
           this.loadInit();
-        }, error: (error) => {
+        },
+        error: (error) => {
           console.log(error);
-        }
+        },
       });
     }
   }
@@ -93,5 +88,11 @@ export class BookCollectionComponent implements OnInit {
 
   showDetails(storyId: number | string) {
     this.router.navigateByUrl(`story/${storyId}/details`);
+  }
+
+  onKeyUp($event: KeyboardEvent) {
+    if ($event.key === 'ArrowUp') {
+      this.loadPrevious();
+    }
   }
 }

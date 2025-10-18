@@ -9,13 +9,11 @@ export const routes: Routes = [
         (mod) => mod.HomepageComponent
       ),
   },
-
   {
     path: 'auth',
     loadChildren: () =>
       import('./auth/auth.module').then((mod) => mod.AuthModule),
   },
-
   {
     path: 'home',
     loadComponent: () =>
@@ -23,17 +21,15 @@ export const routes: Routes = [
         (mod) => mod.HomepageComponent
       ),
   },
-
   {
     path: 'profile',
-    canActivate: [AuthGuard],
-    data: { role: ['reader', 'admin'] },
+    //canActivate: [AuthGuard],
+    //data: { role: ['reader', 'admin'] },
     loadComponent: () =>
       import('../app/user/profile/profile.component').then(
         (mod) => mod.ProfileComponent
       ),
   },
-
   {
     path: 'stories/latest-stories',
     loadComponent: () =>
@@ -41,7 +37,6 @@ export const routes: Routes = [
         (mod) => mod.StoriesComponent
       ),
   },
-
   {
     path: 'stories/popular-stories',
     loadComponent: () =>
@@ -49,7 +44,6 @@ export const routes: Routes = [
         (mod) => mod.StoriesComponent
       ),
   },
-
   {
     path: 'stories-by-category/:category_id',
     loadComponent: () =>
@@ -57,7 +51,6 @@ export const routes: Routes = [
         (mod) => mod.StoriesComponent
       ),
   },
-
   {
     path: 'stories-by-tags/:tag_id',
     loadComponent: () =>
@@ -65,36 +58,32 @@ export const routes: Routes = [
         (mod) => mod.StoriesComponent
       ),
   },
-
   {
     path: 'story/:storyId/details',
-    canActivate: [AuthGuard],
-    data: { role: ['reader', 'admin'] },
+    //canActivate: [AuthGuard],
+    //data: { role: ['reader', 'admin'] },
     loadComponent: () =>
       import('../app/components/story-details/story-details.component').then(
         (mod) => mod.StoryDetailsComponent
       ),
   },
-
   {
     path: 'story/:storyId/:storyName/read',
-    canActivate: [AuthGuard],
-    data: { role: ['reader', 'admin'] },
+    //canActivate: [AuthGuard],
+    //data: { role: ['reader', 'admin'] },
     loadComponent: () =>
       import('../app/components/story-chapters/story-chapters.component').then(
         (mod) => mod.StoryChaptersComponent
       ),
   },
-
   {
     path: 'admin',
-    canActivate: [AuthGuard],
-    data: { role: ['admin'] },
-    canActivateChild: [],
+    //canActivate: [AuthGuard],
+    //data: { role: ['admin'] },
+    //canActivateChild: [],
     loadChildren: () =>
       import('../app/admin/admin.module').then((mod) => mod.AdminModule),
   },
-
   {
     path: 'about',
     loadComponent: () =>
@@ -102,7 +91,6 @@ export const routes: Routes = [
         (mod) => mod.AboutComponent
       ),
   },
-
   {
     path: 'contact',
     loadComponent: () =>
@@ -110,7 +98,6 @@ export const routes: Routes = [
         (mod) => mod.ContactUsComponent
       ),
   },
-
   {
     path: '**',
     loadComponent: () =>

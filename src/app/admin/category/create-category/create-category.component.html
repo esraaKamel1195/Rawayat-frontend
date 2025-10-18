@@ -9,11 +9,18 @@
       <div class="form-field">
         <mat-form-field appearance="outline">
           <mat-label>Category Name</mat-label>
-          <input matInput formControlName="category_name" placeholder="Category name"/>
+          <input
+            matInput
+            formControlName="category_name"
+            placeholder="Category name"
+          />
         </mat-form-field>
-        <mat-error *ngIf="categoryForm.get('category_name')?.touched && categoryForm.get('category_name')?.invalid">
+        @if (categoryForm.get('category_name')?.touched &&
+        categoryForm.get('category_name')?.invalid) {
+        <mat-error>
           Category name is required and must be at least 3 characters.
         </mat-error>
+        }
       </div>
       <div class="text-center">
         <button

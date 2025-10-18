@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { CategoryService } from '../../services/category.service';
-import { AuthService } from '../../services/auth/auth.service';
+import { CategoryService } from '@services/category.service';
+import { AuthService } from '@services/auth/auth.service';
 @Component({
   selector: 'app-header',
   standalone: true,

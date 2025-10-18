@@ -54,12 +54,16 @@
             <mat-label> Tags </mat-label>
             <mat-chip-grid #tagChipGrid aria-label="Enter reactive form tags">
               @for (tag of reactiveKeywords(); track tag) {
-                <mat-chip-row (removed)="removeReactiveKeyword(tag)">
-                  {{ tag }}
-                  <button type="button" matChipRemove aria-label="'remove reactive form' + tag">
-                    <mat-icon>cancel</mat-icon>
-                  </button>
-                </mat-chip-row>
+              <mat-chip-row (removed)="removeReactiveKeyword(tag)">
+                {{ tag }}
+                <button
+                  type="button"
+                  matChipRemove
+                  aria-label="'remove reactive form' + tag"
+                >
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip-row>
               }
             </mat-chip-grid>
             <input
@@ -99,9 +103,9 @@
             <mat-radio-button value="yes">Yes</mat-radio-button>
             <mat-radio-button value="no">No</mat-radio-button>
           </mat-radio-group>
-          <mat-error *ngIf="form.get('mature')?.hasError('required')">
-            Mature is required
-          </mat-error>
+          @if(form.get('mature')?.hasError('required')) {
+          <mat-error> Mature is required </mat-error>
+          }
         </div>
         <div class="form-field col-md-6">
           <label for="image" style="display: inline" class="ms-1"

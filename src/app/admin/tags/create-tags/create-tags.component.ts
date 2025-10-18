@@ -9,8 +9,8 @@ import {
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { Tag } from '../../../../interfaces/tag';
-import { CategoryService } from '../../../../services/category.service';
+import { Tag } from '@interfaces/tag';
+import { CategoryService } from '@services/category.service';
 
 @Component({
   selector: 'app-create-tags',

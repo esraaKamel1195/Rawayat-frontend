@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { CategoryCarouselComponent } from "./category-carousel/category-carousel.component";
-import { BookCollectionComponent } from "./book-collection/book-collection.component";
-import { AuthService } from '../../services/auth/auth.service';
+import { CategoryCarouselComponent } from '@app/components/homepage/category-carousel/category-carousel.component';
+import { BookCollectionComponent } from '@app/components/homepage/book-collection/book-collection.component';
+import { AuthService } from '@services/auth/auth.service';
 
 @Component({
   selector: 'app-homepage',
@@ -12,17 +12,15 @@ import { AuthService } from '../../services/auth/auth.service';
     CommonModule,
     RouterModule,
     CategoryCarouselComponent,
-    BookCollectionComponent
+    BookCollectionComponent,
   ],
   templateUrl: './homepage.component.html',
-  styleUrl: './homepage.component.css'
+  styleUrl: './homepage.component.css',
 })
 export class HomepageComponent implements OnInit {
   isAuthenticated: boolean = false;
 
-  constructor(
-    private readonly authService: AuthService
-  ) {}
+  constructor(private readonly authService: AuthService) {}
 
   ngOnInit(): void {
     this.isAuthenticated = this.authService.isAuthenticated();

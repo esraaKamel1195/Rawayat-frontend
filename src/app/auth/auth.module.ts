@@ -11,5 +11,4 @@ import { authRoutes } from './auth.routes';
   providers: [],
   exports: []
 })
-
 export class AuthModule {}
